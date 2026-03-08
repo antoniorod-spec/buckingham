@@ -1,129 +1,127 @@
-import Image from "next/image"
-import Link from "next/link"
-import { Button } from "@/components/ui/button"
-import { Card, CardContent } from "@/components/ui/card"
-import { Header } from "@/components/header"
-import { Footer } from "@/components/footer"
-import { 
-  Heart, 
-  Clock, 
-  Users, 
-  Baby, 
-  Sparkles, 
-  Music, 
-  Palette, 
-  BookOpen,
-  Shield,
-  CheckCircle2,
-  ArrowRight
-} from "lucide-react"
+﻿import type { Metadata } from 'next'
+import Image from 'next/image'
+import { CTASection } from '@/components/CTASection'
+import { FAQAccordion } from '@/components/FAQAccordion'
+import { FeatureCard } from '@/components/FeatureCard'
+import { GalleryItem } from '@/components/GalleryItem'
+import { PageHero } from '@/components/PageHero'
+import { SectionHeading } from '@/components/SectionHeading'
+import { StatCard } from '@/components/StatCard'
+import { homeFaq } from '@/lib/content'
+import { images } from '@/lib/content/images'
 
-export const metadata = {
-  title: "Maternal | Instituto Buckingham",
-  description: "Programa Maternal para niños de 1 a 3 años. Estimulación temprana, desarrollo integral y ambiente seguro en San Luis Potosí.",
+export const metadata: Metadata = {
+  title: 'Maternal',
+  description:
+    'Descubre la propuesta de Maternal de Instituto Buckingham: seguridad, acompañamiento y desarrollo temprano en un entorno cálido.',
 }
 
-const features = [
+const maternalBenefits = [
   {
-    icon: Heart,
-    title: "Atención Personalizada",
-    description: "Grupos reducidos con máximo 10 niños por maestra para garantizar atención individualizada."
+    title: 'Vínculo y seguridad',
+    description: 'Rutinas cuidadas para que la adaptación se sienta serena tanto para el niño como para su familia.',
+    icon: 'heart' as const,
   },
   {
-    icon: Shield,
-    title: "Ambiente Seguro",
-    description: "Espacios diseñados especialmente para los más pequeños, con materiales seguros y supervisión constante."
+    title: 'Exploración sensorial',
+    description: 'Experiencias guiadas para desarrollar lenguaje, motricidad, curiosidad y confianza desde muy temprano.',
+    icon: 'sparkles' as const,
   },
   {
-    icon: Sparkles,
-    title: "Estimulación Temprana",
-    description: "Programa integral que desarrolla las habilidades cognitivas, motoras y sociales desde los primeros años."
+    title: 'Cuidado personalizado',
+    description: 'Una estructura de atención que favorece observación cercana y seguimiento sensible a cada ritmo.',
+    icon: 'users' as const,
   },
   {
-    icon: Music,
-    title: "Música y Movimiento",
-    description: "Actividades musicales que estimulan el desarrollo auditivo, rítmico y la expresión corporal."
+    title: 'Entorno protegido',
+    description: 'Espacios, ritmos y acompañamiento diseñados específicamente para la primera infancia.',
+    icon: 'shield' as const,
   },
   {
-    icon: Palette,
-    title: "Arte y Creatividad",
-    description: "Exploración sensorial a través de texturas, colores y materiales diversos."
+    title: 'Primer contacto con inglés',
+    description: 'Canciones, juego y lenguaje cotidiano para que el idioma aparezca de forma natural y amable.',
+    icon: 'globe' as const,
   },
   {
-    icon: BookOpen,
-    title: "Iniciación al Inglés",
-    description: "Primera exposición al idioma inglés de forma natural a través de canciones y juegos."
-  }
+    title: 'Comunicación con familias',
+    description: 'La experiencia se construye junto con casa, con seguimiento cercano y expectativas claras.',
+    icon: 'message-circle' as const,
+  },
 ]
 
-const schedule = [
-  { time: "8:00 - 8:30", activity: "Recepción y bienvenida" },
-  { time: "8:30 - 9:00", activity: "Círculo de la mañana" },
-  { time: "9:00 - 9:30", activity: "Estimulación temprana" },
-  { time: "9:30 - 10:00", activity: "Snack y tiempo libre" },
-  { time: "10:00 - 10:30", activity: "Actividad sensorial/arte" },
-  { time: "10:30 - 11:00", activity: "Música y movimiento" },
-  { time: "11:00 - 11:30", activity: "Juego al aire libre" },
-  { time: "11:30 - 12:00", activity: "Inglés / Cuento" },
-  { time: "12:00 - 12:30", activity: "Preparación y salida" },
-]
-
-const benefits = [
-  "Desarrollo de habilidades motoras finas y gruesas",
-  "Estimulación del lenguaje y comunicación",
-  "Socialización con otros niños de su edad",
-  "Rutinas que brindan seguridad emocional",
-  "Exploración sensorial guiada",
-  "Preparación para el siguiente nivel educativo"
+const maternalFaq = [
+  ...homeFaq,
+  {
+    question: '¿Cómo acompañan la adaptación inicial?',
+    answer:
+      'La integración se plantea con cercanía y comunicación constante para que el niño gane seguridad de forma gradual y la familia se sienta acompañada.',
+  },
 ]
 
 export default function MaternalPage() {
   return (
-    <div className="min-h-screen bg-background">
-      <Header />
-      
-      {/* Hero Section */}
-      <section className="relative pt-24 pb-16 lg:pt-32 lg:pb-24">
-        <div className="absolute inset-0 bg-gradient-to-b from-primary/5 to-transparent" />
-        <div className="container relative mx-auto px-4">
-          <div className="grid gap-12 lg:grid-cols-2 lg:items-center">
+    <div className="flex flex-col">
+      <PageHero
+        eyebrow="Maternal · 1 a 3 años"
+        title="Primeros pasos en un ambiente sereno, seguro y profundamente acompañado"
+        description="La página de Maternal comunica cuidado, estructura y sensibilidad. El foco está en generar confianza para una etapa en la que la familia necesita sentirse contenida desde el primer vistazo."
+        image={images.maternal.hero}
+        imageAlt="Programa Maternal en Instituto Buckingham"
+        primaryCta={{ label: 'Solicitar informes', href: '/admisiones' }}
+        secondaryCta={{ label: 'Agendar visita', href: '/contacto' }}
+        trustBullets={['Adaptación acompañada', 'Primer vínculo escuela-familia', 'Rutinas seguras']}
+        stats={[
+          { value: '1 a 3 años', label: 'etapa atendida', detail: 'Diseño pensado para primera infancia.' },
+          { value: 'Rutinas', label: 'que generan confianza', detail: 'Orden visible para bajar ansiedad y dar certeza.' },
+          { value: 'Calidez', label: 'en cada interacción', detail: 'El tono visual y verbal acompaña esa promesa.' },
+        ]}
+      />
+
+      <section className="section-space section-warm">
+        <div className="container-shell">
+          <SectionHeading
+            eyebrow="Propuesta de valor"
+            title="Todo en la página refuerza contención, cercanía y desarrollo temprano"
+            description="Las secciones, íconos y ritmos visuales están pensados para que la familia perciba inmediatamente que Maternal es un entorno cuidado y confiable."
+          />
+          <div className="grid gap-5 md:grid-cols-2 xl:grid-cols-3">
+            {maternalBenefits.map((benefit) => (
+              <FeatureCard
+                key={benefit.title}
+                title={benefit.title}
+                description={benefit.description}
+                icon={benefit.icon}
+              />
+            ))}
+          </div>
+        </div>
+      </section>
+
+      <section className="section-space">
+        <div className="container-shell">
+          <div className="grid gap-10 lg:grid-cols-[0.98fr_1.02fr] lg:items-center">
             <div>
-              <div className="mb-4 inline-flex items-center gap-2 rounded-full bg-primary/10 px-4 py-2 text-sm font-medium text-primary">
-                <Baby className="h-4 w-4" />
-                De 1 a 3 años
-              </div>
-              <h1 className="mb-6 font-serif text-4xl font-bold tracking-tight text-foreground lg:text-5xl xl:text-6xl text-balance">
-                Maternal
-              </h1>
-              <p className="mb-8 text-lg text-muted-foreground leading-relaxed">
-                Los primeros años son fundamentales. En nuestro programa Maternal, 
-                brindamos un ambiente cálido y seguro donde los más pequeños 
-                desarrollan sus primeras habilidades a través del juego, 
-                la exploración y el amor.
-              </p>
-              <div className="flex flex-col gap-4 sm:flex-row">
-                <Button size="lg" className="bg-primary text-primary-foreground hover:bg-primary/90" asChild>
-                  <Link href="/admisiones">
-                    Solicitar Información
-                    <ArrowRight className="ml-2 h-4 w-4" />
-                  </Link>
-                </Button>
-                <Button size="lg" variant="outline" className="border-primary/30 hover:bg-primary/5" asChild>
-                  <Link href="/admisiones/agenda-visita">
-                    Agendar Visita
-                  </Link>
-                </Button>
+              <SectionHeading
+                eyebrow="Experiencia diaria"
+                title="El sitio explica cómo se vive Maternal sin caer en clichés visuales"
+                description="La narrativa baja el tono infantilizado y lo sustituye por claridad, suavidad y una estética premium que sigue siendo cálida y familiar."
+                align="left"
+              />
+              <div className="grid gap-3 sm:grid-cols-2">
+                <StatCard value="Rutina" label="bien diseñada" detail="Entrada, juego, descanso y acompañamiento con expectativas visibles." />
+                <StatCard value="Exploración" label="con intención" detail="La página puede expandirse fácilmente con planes de aula o galerías por actividad." />
+                <StatCard value="Familia" label="siempre informada" detail="El diseño reserva espacio para mensajes de confianza y seguimiento cercano." />
+                <StatCard value="Transición" label="hacia Preescolar" detail="La continuidad entre niveles se comunica desde esta primera etapa." />
               </div>
             </div>
-            <div className="relative">
-              <div className="absolute -inset-4 rounded-3xl bg-primary/10 blur-2xl" />
-              <div className="relative overflow-hidden rounded-2xl shadow-2xl ring-1 ring-primary/20">
+            <div className="card-elevated overflow-hidden p-3">
+              <div className="relative aspect-[4/3.5] overflow-hidden rounded-[1.35rem]">
                 <Image
-                  src="/images/maternal.jpg"
-                  alt="Niños en programa Maternal"
-                  width={600}
-                  height={500}
-                  className="h-auto w-full object-cover"
+                  src={images.maternal.hero}
+                  alt="Ambiente de Maternal"
+                  fill
+                  className="object-cover"
+                  sizes="(max-width: 1024px) 100vw, 48vw"
                 />
               </div>
             </div>
@@ -131,149 +129,40 @@ export default function MaternalPage() {
         </div>
       </section>
 
-      {/* Info Cards */}
-      <section className="py-12 bg-card">
-        <div className="container mx-auto px-4">
-          <div className="grid gap-6 md:grid-cols-3">
-            <Card className="border-primary/20 bg-primary/5">
-              <CardContent className="flex items-center gap-4 p-6">
-                <div className="flex h-12 w-12 items-center justify-center rounded-full bg-primary/20">
-                  <Baby className="h-6 w-6 text-primary" />
-                </div>
-                <div>
-                  <p className="text-sm text-muted-foreground">Edad</p>
-                  <p className="text-lg font-semibold text-foreground">1 a 3 años</p>
-                </div>
-              </CardContent>
-            </Card>
-            <Card className="border-primary/20 bg-primary/5">
-              <CardContent className="flex items-center gap-4 p-6">
-                <div className="flex h-12 w-12 items-center justify-center rounded-full bg-primary/20">
-                  <Clock className="h-6 w-6 text-primary" />
-                </div>
-                <div>
-                  <p className="text-sm text-muted-foreground">Horario</p>
-                  <p className="text-lg font-semibold text-foreground">8:00 - 12:30 hrs</p>
-                </div>
-              </CardContent>
-            </Card>
-            <Card className="border-primary/20 bg-primary/5">
-              <CardContent className="flex items-center gap-4 p-6">
-                <div className="flex h-12 w-12 items-center justify-center rounded-full bg-primary/20">
-                  <Users className="h-6 w-6 text-primary" />
-                </div>
-                <div>
-                  <p className="text-sm text-muted-foreground">Grupos</p>
-                  <p className="text-lg font-semibold text-foreground">Máximo 10 niños</p>
-                </div>
-              </CardContent>
-            </Card>
-          </div>
-        </div>
-      </section>
-
-      {/* Features Grid */}
-      <section className="py-16 lg:py-24">
-        <div className="container mx-auto px-4">
-          <div className="mb-12 text-center">
-            <h2 className="mb-4 font-serif text-3xl font-bold text-foreground lg:text-4xl">
-              Nuestro Programa Maternal
-            </h2>
-            <p className="mx-auto max-w-2xl text-muted-foreground">
-              Un enfoque integral que estimula todas las áreas del desarrollo infantil
-            </p>
-          </div>
-          <div className="grid gap-6 md:grid-cols-2 lg:grid-cols-3">
-            {features.map((feature, index) => (
-              <Card key={index} className="border-primary/10 transition-all hover:border-primary/30 hover:shadow-lg">
-                <CardContent className="p-6">
-                  <div className="mb-4 flex h-12 w-12 items-center justify-center rounded-xl bg-primary/10">
-                    <feature.icon className="h-6 w-6 text-primary" />
-                  </div>
-                  <h3 className="mb-2 text-lg font-semibold text-foreground">{feature.title}</h3>
-                  <p className="text-sm text-muted-foreground leading-relaxed">{feature.description}</p>
-                </CardContent>
-              </Card>
+      <section className="section-space section-tint">
+        <div className="container-shell">
+          <SectionHeading
+            eyebrow="Galería"
+            title="Espacios y momentos listos para mostrarse con una grilla sobria y flexible"
+            description="Las imágenes sostienen la narrativa de calma y cuidado sin romper la estética general del sitio."
+          />
+          <div className="grid gap-4 md:grid-cols-3">
+            {images.maternal.gallery.map((src, index) => (
+              <GalleryItem key={src} src={src} alt={`Maternal Buckingham ${index + 1}`} />
             ))}
           </div>
         </div>
       </section>
 
-      {/* Schedule & Benefits */}
-      <section className="py-16 lg:py-24 bg-secondary/5">
-        <div className="container mx-auto px-4">
-          <div className="grid gap-12 lg:grid-cols-2">
-            {/* Schedule */}
-            <div>
-              <h2 className="mb-8 font-serif text-3xl font-bold text-foreground">
-                Horario del Día
-              </h2>
-              <div className="space-y-3">
-                {schedule.map((item, index) => (
-                  <div 
-                    key={index} 
-                    className="flex items-center gap-4 rounded-lg bg-card p-4 shadow-sm ring-1 ring-primary/10"
-                  >
-                    <span className="w-28 shrink-0 text-sm font-medium text-primary">
-                      {item.time}
-                    </span>
-                    <span className="text-foreground">{item.activity}</span>
-                  </div>
-                ))}
-              </div>
-            </div>
-            
-            {/* Benefits */}
-            <div>
-              <h2 className="mb-8 font-serif text-3xl font-bold text-foreground">
-                Beneficios del Programa
-              </h2>
-              <div className="space-y-4">
-                {benefits.map((benefit, index) => (
-                  <div key={index} className="flex items-start gap-3">
-                    <CheckCircle2 className="mt-0.5 h-5 w-5 shrink-0 text-primary" />
-                    <span className="text-foreground">{benefit}</span>
-                  </div>
-                ))}
-              </div>
-              <div className="mt-8 rounded-xl bg-primary/10 p-6">
-                <p className="text-sm text-muted-foreground">
-                  <strong className="text-foreground">Nota importante:</strong> Cada niño tiene su propio ritmo 
-                  de desarrollo. Nuestras maestras especializadas adaptan las actividades 
-                  según las necesidades individuales de cada pequeño.
-                </p>
-              </div>
-            </div>
+      <section className="section-space">
+        <div className="container-shell">
+          <SectionHeading
+            eyebrow="FAQ"
+            title="La página también resuelve las dudas emocionales de esta etapa"
+            description="Las preguntas frecuentes refuerzan contención, proceso de adaptación y confianza en el acompañamiento."
+          />
+          <div className="mx-auto max-w-3xl">
+            <FAQAccordion items={maternalFaq} />
           </div>
         </div>
       </section>
 
-      {/* CTA Section */}
-      <section className="py-16 lg:py-24 bg-secondary text-secondary-foreground">
-        <div className="container mx-auto px-4 text-center">
-          <h2 className="mb-4 font-serif text-3xl font-bold lg:text-4xl">
-            ¿Listo para dar el primer paso?
-          </h2>
-          <p className="mx-auto mb-8 max-w-2xl text-secondary-foreground/80">
-            Agenda una visita para conocer nuestras instalaciones y conversar 
-            sobre el desarrollo de tu pequeño.
-          </p>
-          <div className="flex flex-col justify-center gap-4 sm:flex-row">
-            <Button size="lg" className="bg-primary text-primary-foreground hover:bg-primary/90" asChild>
-              <Link href="/admisiones">
-                Iniciar Proceso de Admisión
-              </Link>
-            </Button>
-            <Button size="lg" variant="outline" className="border-secondary-foreground/30 text-secondary-foreground hover:bg-secondary-foreground/10" asChild>
-              <Link href="tel:+524441234567">
-                Llamar Ahora
-              </Link>
-            </Button>
-          </div>
-        </div>
-      </section>
-
-      <Footer />
+      <CTASection
+        title="Maternal debe sentirse tranquilo incluso antes de visitar el campus"
+        description="La estructura ya comunica esa seguridad con una mezcla de copy cercano, superficies suaves y bloques de información claros."
+        primaryCta={{ label: 'Iniciar proceso', href: '/admisiones' }}
+        secondaryCta={{ label: 'Hablar con admisiones', href: '/contacto' }}
+      />
     </div>
   )
 }
