@@ -4,7 +4,7 @@ import { Mail, MapPin, Phone } from 'lucide-react'
 import { navigation, siteConfig } from '@/lib/content'
 
 const aboutLinks = navigation.find((item) => item.name === 'Nosotros')?.submenu ?? []
-const academicLinks = navigation.find((item) => item.name === 'Oferta educativa')?.submenu ?? []
+const academicLinks = navigation.find((item) => item.name === 'Oferta Educativa')?.submenu ?? []
 
 export function Footer() {
   return (
@@ -14,11 +14,11 @@ export function Footer() {
           <div>
             <Link href="/" className="inline-flex items-center" aria-label={siteConfig.name}>
               <Image
-                src="/images/Logo-Web-Buckingham.webp"
+                src="/images/logo-buckingham-footer.webp"
                 alt={siteConfig.name}
-                width={220}
-                height={72}
-                className="h-14 w-auto object-contain sm:h-16"
+                width={260}
+                height={86}
+                className="h-16 w-auto object-contain sm:h-[4.4rem]"
               />
             </Link>
 

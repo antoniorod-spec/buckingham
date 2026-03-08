@@ -37,19 +37,19 @@ export function Header() {
         </div>
       </div>
 
-      <div className="container-shell flex h-[4.9rem] items-center justify-between gap-5">
+      <div className="container-shell flex h-[5.6rem] items-center justify-between gap-5">
         <Link
           href="/"
-          className="flex shrink-0 items-center py-2"
+          className="flex shrink-0 items-center py-1"
           aria-label={siteConfig.name}
         >
           <Image
             src="/images/Logo-Web-Buckingham.webp"
             alt={siteConfig.name}
-            width={236}
-            height={72}
+            width={300}
+            height={92}
             priority
-            className="h-[2.55rem] w-auto object-contain sm:h-[2.9rem] lg:h-[3.2rem]"
+            className="h-[3.35rem] w-auto object-contain sm:h-[3.75rem] lg:h-[4.15rem]"
           />
         </Link>
 

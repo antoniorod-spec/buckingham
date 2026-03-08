@@ -1,4 +1,5 @@
 ﻿import type { Metadata } from 'next'
+import { BookOpen, Globe, MapPin, Medal, ShieldCheck } from 'lucide-react'
 import Image from 'next/image'
 import { CTASection } from '@/components/CTASection'
 import { FAQAccordion } from '@/components/FAQAccordion'
@@ -50,6 +51,34 @@ const primariaStrengths = [
   },
 ]
 
+const primariaHighlights = [
+  {
+    title: 'Bases académicas',
+    description: 'Formación sólida con estructura y seguimiento.',
+    icon: BookOpen,
+  },
+  {
+    title: 'Inglés integrado',
+    description: 'Continuidad bilingüe dentro de la rutina diaria.',
+    icon: Globe,
+  },
+  {
+    title: '+30 años de trayectoria',
+    description: 'Una comunidad educativa con experiencia y confianza.',
+    icon: Medal,
+  },
+  {
+    title: 'Ambiente seguro',
+    description: 'Cuidado, cercanía y atención en cada etapa.',
+    icon: ShieldCheck,
+  },
+  {
+    title: 'San Luis Potosí',
+    description: 'Lomas 1a Sección para familias de la ciudad.',
+    icon: MapPin,
+  },
+]
+
 const primariaFaq = [
   ...homeFaq,
   {
@@ -64,26 +93,42 @@ export default function PrimariaPage() {
     <div className="flex flex-col">
       <PageHero
         eyebrow="Primaria · 6 a 12 años"
-        title="Una primaria con estructura, cercanía y visión de futuro para avanzar con confianza"
-        description="La página de Primaria sostiene un tono más maduro: formación académica, inglés, hábitos y acompañamiento, todo presentado con una estética sobria y contemporánea."
+        title="Formación académica, cercanía y continuidad para avanzar con confianza"
+        description="Primaria en Buckingham integra estructura, acompañamiento cercano e inglés en una experiencia sólida y clara para las familias."
         image={images.primaria.hero}
         imageAlt="Programa Primaria en Instituto Buckingham"
         primaryCta={{ label: 'Solicitar informes', href: '/admisiones' }}
         secondaryCta={{ label: 'Agendar visita', href: '/contacto' }}
         trustBullets={['Bases académicas', 'Inglés integrado', 'Acompañamiento cercano']}
-        stats={[
-          { value: '6 a 12 años', label: 'etapa formativa', detail: 'La interfaz cambia el tono hacia mayor solidez y proyección.' },
-          { value: 'Hábitos', label: 'y autonomía', detail: 'La narrativa ayuda a visualizar estructura y crecimiento personal.' },
-          { value: 'Continuidad', label: 'hacia el futuro', detail: 'Todo el nivel se presenta como un puente sólido a siguientes retos.' },
-        ]}
+        imageBadge={{ value: '6 a 12 años', label: 'Etapa formativa', detail: 'Hábitos, autonomía y continuidad académica para el futuro.' }}
       />
+
+      <section className="border-y border-border/70 bg-white/80 py-7">
+        <div className="container-shell">
+          <div className="grid gap-8 sm:grid-cols-2 lg:grid-cols-5">
+            {primariaHighlights.map((item) => {
+              const Icon = item.icon
+
+              return (
+                <div key={item.title} className="flex flex-col items-center text-center">
+                  <div className="flex h-12 w-12 items-center justify-center rounded-full bg-primary/12 text-primary">
+                    <Icon className="h-5 w-5" />
+                  </div>
+                  <h3 className="mt-4 text-lg font-semibold tracking-tight text-secondary">{item.title}</h3>
+                  <p className="mt-1 text-sm leading-relaxed text-muted-foreground">{item.description}</p>
+                </div>
+              )
+            })}
+          </div>
+        </div>
+      </section>
 
       <section className="section-space section-warm">
         <div className="container-shell">
           <SectionHeading
             eyebrow="Fortalezas"
-            title="El diseño acompaña un discurso más académico sin perder calidez"
-            description="Primaria necesita inspirar confianza, orden y profundidad. Por eso la página usa superficies más sobrias, bloques claros y copy enfocado en avance, criterio y acompañamiento."
+            title="Una propuesta académica clara sin perder cercanía ni calidez"
+            description="Primaria comunica orden, profundidad y acompañamiento con una jerarquía sobria y fácil de recorrer."
           />
           <div className="grid gap-5 md:grid-cols-2 xl:grid-cols-3">
             {primariaStrengths.map((strength) => (
@@ -104,8 +149,8 @@ export default function PrimariaPage() {
             <div>
               <SectionHeading
                 eyebrow="Modelo académico"
-                title="La información se organiza para explicar rigor, cercanía y proyección"
-                description="El contenido no se limita a listar materias: pone en valor hábitos, seguimiento, pensamiento crítico y una experiencia escolar que acompaña el crecimiento integral."
+                title="Rigor, cercanía y proyección explicados con claridad"
+                description="El contenido organiza hábitos, seguimiento y crecimiento integral sin cargar demasiado la página."
                 align="left"
               />
               <div className="grid gap-3 sm:grid-cols-2">
@@ -115,7 +160,10 @@ export default function PrimariaPage() {
                 <StatCard value="Proyección" label="a siguientes etapas" detail="La página sugiere preparación y continuidad académica." />
               </div>
             </div>
-            <div className="card-elevated overflow-hidden p-3">
+            <div className="card-elevated relative overflow-hidden border-primary/12 p-3">
+              <div className="absolute right-6 top-6 z-10 hidden rounded-full bg-secondary px-3 py-1 text-xs font-semibold uppercase tracking-[0.18em] text-secondary-foreground md:inline-flex">
+                Primaria Buckingham
+              </div>
               <div className="relative aspect-[4/3.5] overflow-hidden rounded-[1.35rem]">
                 <Image
                   src={images.primaria.hero}
@@ -124,6 +172,13 @@ export default function PrimariaPage() {
                   className="object-cover"
                   sizes="(max-width: 1024px) 100vw, 48vw"
                 />
+                <div className="absolute inset-x-0 bottom-0 h-28 bg-gradient-to-t from-secondary/35 via-secondary/5 to-transparent" />
+              </div>
+              <div className="absolute bottom-6 left-6 right-6 hidden rounded-[1.2rem] border border-primary/15 bg-white/94 p-4 shadow-[0_20px_40px_-28px_rgba(12,29,55,0.28)] backdrop-blur md:block">
+                <p className="text-xs font-semibold uppercase tracking-[0.18em] text-secondary">Modelo académico</p>
+                <p className="mt-2 text-sm leading-relaxed text-muted-foreground">
+                  Una experiencia con orden, seguimiento cercano y continuidad para proyectar confianza académica.
+                </p>
               </div>
             </div>
           </div>
@@ -134,8 +189,8 @@ export default function PrimariaPage() {
         <div className="container-shell">
           <SectionHeading
             eyebrow="Vida escolar"
-            title="La galería mantiene el lenguaje premium del sitio incluso en un nivel más académico"
-            description="Eso permite mostrar proyectos, aula y comunidad sin romper la consistencia visual general."
+            title="Proyectos, aula y comunidad con el mismo lenguaje premium del sitio"
+            description="La galería permite mostrar vida escolar sin romper la consistencia visual general."
           />
           <div className="grid gap-4 md:grid-cols-3">
             {images.primaria.gallery.map((src, index) => (
@@ -150,7 +205,7 @@ export default function PrimariaPage() {
           <SectionHeading
             eyebrow="Testimonios"
             title="La validación social refuerza la promesa de rigor con cercanía"
-            description="En Primaria, las familias suelen buscar evidencia de acompañamiento académico y trato humano. Los testimonios ayudan a sostener ambas cosas."
+            description="Los testimonios ayudan a sostener evidencia de acompañamiento académico y trato humano."
           />
           <div className="grid gap-5 lg:grid-cols-3">
             {testimonials.map((testimonial) => (
@@ -169,8 +224,8 @@ export default function PrimariaPage() {
         <div className="container-shell">
           <SectionHeading
             eyebrow="FAQ"
-            title="Preguntas resueltas para sostener una decisión más racional y comparativa"
-            description="La interfaz permite explicar acompañamiento, estructura y continuidad sin cargar demasiado la página principal del nivel."
+            title="Preguntas frecuentes resueltas con claridad"
+            description="La interfaz permite explicar acompañamiento, estructura y continuidad sin sobrecargar la página."
           />
           <div className="mx-auto max-w-3xl">
             <FAQAccordion items={primariaFaq} />
@@ -187,3 +242,4 @@ export default function PrimariaPage() {
     </div>
   )
 }
+

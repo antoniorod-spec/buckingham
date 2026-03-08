@@ -1,8 +1,6 @@
 import { Metadata } from "next"
 import Image from "next/image"
 import Link from "next/link"
-import { Header } from "@/components/header"
-import { Footer } from "@/components/footer"
 import { Button } from "@/components/ui/button"
 import { Card, CardContent } from "@/components/ui/card"
 import { ChevronRight, Users, GraduationCap, Award, Heart } from "lucide-react"
@@ -91,8 +89,6 @@ const caracteristicas = [
 
 export default function EquipoPage() {
   return (
-    <>
-      <Header />
       <main className="min-h-screen bg-background">
         {/* Breadcrumb */}
         <div className="border-b border-primary/20 bg-card">
@@ -116,7 +112,7 @@ export default function EquipoPage() {
                 <Users className="h-4 w-4" />
                 Nuestro Equipo
               </span>
-              <h1 className="font-serif text-4xl font-bold text-white sm:text-5xl lg:text-6xl mb-6 text-balance">
+              <h1 className="font-heading text-4xl font-bold text-white sm:text-5xl lg:text-6xl mb-6 text-balance">
                 Equipo Docente
               </h1>
               <p className="text-lg text-white/80 leading-relaxed">
@@ -155,7 +151,7 @@ export default function EquipoPage() {
         <section className="py-16 lg:py-24">
           <div className="mx-auto max-w-7xl px-4">
             <div className="text-center mb-16">
-              <h2 className="font-serif text-3xl font-bold text-foreground sm:text-4xl mb-4">
+              <h2 className="font-heading text-3xl font-bold text-foreground sm:text-4xl mb-4">
                 Equipo Directivo
               </h2>
               <p className="text-muted-foreground max-w-2xl mx-auto">
@@ -175,7 +171,7 @@ export default function EquipoPage() {
                     />
                   </div>
                   <CardContent className="p-6 text-center">
-                    <h3 className="font-serif text-xl font-semibold text-foreground mb-1">
+                    <h3 className="font-heading text-xl font-semibold text-foreground mb-1">
                       {persona.name}
                     </h3>
                     <p className="text-primary font-medium text-sm mb-3">
@@ -195,7 +191,7 @@ export default function EquipoPage() {
         <section className="py-16 lg:py-24 bg-muted/50">
           <div className="mx-auto max-w-7xl px-4">
             <div className="text-center mb-16">
-              <h2 className="font-serif text-3xl font-bold text-foreground sm:text-4xl mb-4">
+              <h2 className="font-heading text-3xl font-bold text-foreground sm:text-4xl mb-4">
                 Nuestros Departamentos
               </h2>
               <p className="text-muted-foreground max-w-2xl mx-auto">
@@ -208,7 +204,7 @@ export default function EquipoPage() {
                 <Card key={dept.title} className="border-primary/20 hover:shadow-md transition-shadow">
                   <CardContent className="p-6">
                     <div className="flex items-center justify-between mb-4">
-                      <h3 className="font-serif text-lg font-semibold text-foreground">
+                      <h3 className="font-heading text-lg font-semibold text-foreground">
                         {dept.title}
                       </h3>
                       <span className="text-xs font-medium bg-primary/10 text-primary px-2 py-1 rounded-full">
@@ -229,7 +225,7 @@ export default function EquipoPage() {
         <section className="py-16 lg:py-24">
           <div className="mx-auto max-w-7xl px-4">
             <div className="text-center mb-16">
-              <h2 className="font-serif text-3xl font-bold text-foreground sm:text-4xl mb-4">
+              <h2 className="font-heading text-3xl font-bold text-foreground sm:text-4xl mb-4">
                 Lo Que Nos Distingue
               </h2>
               <p className="text-muted-foreground max-w-2xl mx-auto">
@@ -257,7 +253,7 @@ export default function EquipoPage() {
         <section className="py-16 lg:py-24 bg-gradient-to-r from-primary/5 to-secondary/5">
           <div className="mx-auto max-w-7xl px-4">
             <div className="max-w-3xl mx-auto text-center">
-              <h2 className="font-serif text-3xl font-bold text-foreground sm:text-4xl mb-4">
+              <h2 className="font-heading text-3xl font-bold text-foreground sm:text-4xl mb-4">
                 Únete a Nuestro Equipo
               </h2>
               <p className="text-muted-foreground mb-8">
@@ -274,7 +270,7 @@ export default function EquipoPage() {
         {/* CTA Section */}
         <section className="py-16 lg:py-24 bg-secondary text-white">
           <div className="mx-auto max-w-7xl px-4 text-center">
-            <h2 className="font-serif text-3xl font-bold sm:text-4xl mb-4">
+            <h2 className="font-heading text-3xl font-bold sm:text-4xl mb-4">
               Conoce a Nuestro Equipo en Persona
             </h2>
             <p className="text-white/80 max-w-2xl mx-auto mb-8">
@@ -292,7 +288,5 @@ export default function EquipoPage() {
           </div>
         </section>
       </main>
-      <Footer />
-    </>
   )
 }

@@ -43,9 +43,9 @@ export function MobileMenu() {
             <Image
               src="/images/Logo-Web-Buckingham.webp"
               alt="Instituto Buckingham"
-              width={188}
-              height={62}
-              className="h-12 w-auto object-contain"
+              width={260}
+              height={82}
+              className="h-16 w-auto object-contain"
             />
           </div>
           <SheetTitle className="sr-only">Menú principal</SheetTitle>

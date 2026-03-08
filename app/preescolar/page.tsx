@@ -1,4 +1,5 @@
 ﻿import type { Metadata } from 'next'
+import { BookOpen, Globe, GraduationCap, Heart, Sparkles } from 'lucide-react'
 import Image from 'next/image'
 import { CTASection } from '@/components/CTASection'
 import { FAQAccordion } from '@/components/FAQAccordion'
@@ -49,6 +50,34 @@ const preescolarPillars = [
   },
 ]
 
+const preescolarHighlights = [
+  {
+    title: 'Juego intencional',
+    description: 'Aprender explorando con estructura y propósito.',
+    icon: Sparkles,
+  },
+  {
+    title: 'Lenguaje y expresión',
+    description: 'Comunicación, creatividad y confianza al participar.',
+    icon: BookOpen,
+  },
+  {
+    title: 'Vida socioemocional',
+    description: 'Convivencia, seguridad y acompañamiento cercano.',
+    icon: Heart,
+  },
+  {
+    title: 'Bilingüismo cotidiano',
+    description: 'El inglés forma parte natural de la rutina.',
+    icon: Globe,
+  },
+  {
+    title: 'Puente a Primaria',
+    description: 'Hábitos y bases sólidas para la siguiente etapa.',
+    icon: GraduationCap,
+  },
+]
+
 const preescolarFaq = [
   ...homeFaq,
   {
@@ -63,26 +92,42 @@ export default function PreescolarPage() {
     <div className="flex flex-col">
       <PageHero
         eyebrow="Preescolar · 3 a 6 años"
-        title="Una etapa para descubrir, expresarse y construir bases sólidas con alegría y estructura"
-        description="La página de Preescolar necesita comunicar energía, curiosidad y crecimiento, pero con una estética cuidada que mantenga la percepción premium y confiable de todo el sitio."
+        title="Descubrir, expresarse y aprender con alegría, estructura y confianza"
+        description="Preescolar en Buckingham acompaña una etapa clave con juego intencional, bilingüismo natural y bases sólidas para seguir creciendo."
         image={images.preescolar.hero}
         imageAlt="Programa Preescolar en Instituto Buckingham"
         primaryCta={{ label: 'Solicitar informes', href: '/admisiones' }}
         secondaryCta={{ label: 'Conocer Maternal', href: '/maternal' }}
         trustBullets={['Juego intencional', 'Inglés cotidiano', 'Desarrollo socioemocional']}
-        stats={[
-          { value: '3 a 6 años', label: 'etapa clave', detail: 'Una fase donde se consolidan lenguaje, hábitos y curiosidad.' },
-          { value: 'Aprender jugando', label: 'con estructura', detail: 'La experiencia visual explica diversión con propósito.' },
-          { value: 'Puente', label: 'hacia Primaria', detail: 'Las secciones comunican continuidad sin ruptura entre niveles.' },
-        ]}
+        imageBadge={{ value: '3 a 6 años', label: 'Etapa clave de desarrollo', detail: 'Curiosidad, lenguaje, hábitos y aprendizaje con intención.' }}
       />
+
+      <section className="border-y border-border/70 bg-white/80 py-7">
+        <div className="container-shell">
+          <div className="grid gap-8 sm:grid-cols-2 lg:grid-cols-5">
+            {preescolarHighlights.map((item) => {
+              const Icon = item.icon
+
+              return (
+                <div key={item.title} className="flex flex-col items-center text-center">
+                  <div className="flex h-12 w-12 items-center justify-center rounded-full bg-primary/12 text-primary">
+                    <Icon className="h-5 w-5" />
+                  </div>
+                  <h3 className="mt-4 text-lg font-semibold tracking-tight text-secondary">{item.title}</h3>
+                  <p className="mt-1 text-sm leading-relaxed text-muted-foreground">{item.description}</p>
+                </div>
+              )
+            })}
+          </div>
+        </div>
+      </section>
 
       <section className="section-space section-warm">
         <div className="container-shell">
           <SectionHeading
             eyebrow="Pilares"
-            title="Una página que transmite movimiento, descubrimiento y claridad pedagógica"
-            description="Los bloques están diseñados para mostrar habilidades, beneficios y metodología con una jerarquía limpia y una atmósfera cálida."
+            title="Movimiento, curiosidad y claridad pedagógica en la misma experiencia"
+            description="Los bloques muestran habilidades, beneficios y metodología con una jerarquía clara y cálida."
           />
           <div className="grid gap-5 md:grid-cols-2 xl:grid-cols-3">
             {preescolarPillars.map((pillar) => (
@@ -100,7 +145,10 @@ export default function PreescolarPage() {
       <section className="section-space">
         <div className="container-shell">
           <div className="grid gap-10 lg:grid-cols-[1.02fr_0.98fr] lg:items-center">
-            <div className="card-elevated overflow-hidden p-3">
+            <div className="card-elevated relative overflow-hidden border-primary/12 p-3">
+              <div className="absolute right-6 top-6 z-10 hidden rounded-full bg-secondary px-3 py-1 text-xs font-semibold uppercase tracking-[0.18em] text-secondary-foreground md:inline-flex">
+                Preescolar Buckingham
+              </div>
               <div className="relative aspect-[4/3.5] overflow-hidden rounded-[1.35rem]">
                 <Image
                   src={images.preescolar.hero}
@@ -109,13 +157,20 @@ export default function PreescolarPage() {
                   className="object-cover"
                   sizes="(max-width: 1024px) 100vw, 48vw"
                 />
+                <div className="absolute inset-x-0 bottom-0 h-28 bg-gradient-to-t from-secondary/35 via-secondary/5 to-transparent" />
+              </div>
+              <div className="absolute bottom-6 left-6 right-6 hidden rounded-[1.2rem] border border-primary/15 bg-white/94 p-4 shadow-[0_20px_40px_-28px_rgba(12,29,55,0.28)] backdrop-blur md:block">
+                <p className="text-xs font-semibold uppercase tracking-[0.18em] text-secondary">Metodología</p>
+                <p className="mt-2 text-sm leading-relaxed text-muted-foreground">
+                  Juego, lenguaje y hábitos en una experiencia estructurada, alegre y fácil de comprender para las familias.
+                </p>
               </div>
             </div>
             <div>
               <SectionHeading
                 eyebrow="Metodología"
-                title="La composición mezcla contenido emocional con señales claras de estructura"
-                description="Ese balance es importante para que la familia vea un entorno alegre y child-centered, pero también ordenado, serio y bien pensado."
+                title="Juego, estructura y crecimiento en una narrativa clara"
+                description="La composición mantiene el equilibrio entre una experiencia alegre y una propuesta seria y bien pensada."
                 align="left"
               />
               <div className="grid gap-3 sm:grid-cols-2">
@@ -133,7 +188,7 @@ export default function PreescolarPage() {
         <div className="container-shell">
           <SectionHeading
             eyebrow="Galería"
-            title="El sistema visual está listo para soportar proyectos, juego y vida escolar de Preescolar"
+            title="Proyectos, juego y vida escolar con una grilla limpia y consistente"
             description="La cuadrícula reutilizable mantiene consistencia con el home y con el resto de niveles."
           />
           <div className="grid gap-4 md:grid-cols-3">
@@ -148,8 +203,8 @@ export default function PreescolarPage() {
         <div className="container-shell">
           <SectionHeading
             eyebrow="FAQ"
-            title="Preguntas resueltas con un tono cercano y confiable"
-            description="La página sostiene la conversación de la familia sin obligarla a salir del flujo principal."
+            title="Preguntas frecuentes resueltas con claridad y cercanía"
+            description="La página sostiene la conversación de la familia sin sacarla del flujo principal."
           />
           <div className="mx-auto max-w-3xl">
             <FAQAccordion items={preescolarFaq} />
@@ -166,3 +221,4 @@ export default function PreescolarPage() {
     </div>
   )
 }
+

@@ -1,7 +1,5 @@
 import { Metadata } from "next"
 import Link from "next/link"
-import { Header } from "@/components/header"
-import { Footer } from "@/components/footer"
 import { Button } from "@/components/ui/button"
 import { Card, CardContent } from "@/components/ui/card"
 import { ChevronRight, Target, Eye, Compass, Heart, BookOpen, Globe } from "lucide-react"
@@ -13,8 +11,6 @@ export const metadata: Metadata = {
 
 export default function MisionVisionPage() {
   return (
-    <>
-      <Header />
       <main className="min-h-screen bg-background">
         {/* Breadcrumb */}
         <div className="border-b border-primary/20 bg-card">
@@ -38,7 +34,7 @@ export default function MisionVisionPage() {
                 <Compass className="h-4 w-4" />
                 Nuestra Filosofía
               </span>
-              <h1 className="font-serif text-4xl font-bold text-white sm:text-5xl lg:text-6xl mb-6 text-balance">
+              <h1 className="font-heading text-4xl font-bold text-white sm:text-5xl lg:text-6xl mb-6 text-balance">
                 Misión y Visión
               </h1>
               <p className="text-lg text-white/80 leading-relaxed">
@@ -58,7 +54,7 @@ export default function MisionVisionPage() {
                   <div className="flex h-14 w-14 items-center justify-center rounded-2xl bg-primary/10">
                     <Target className="h-7 w-7 text-primary" />
                   </div>
-                  <h2 className="font-serif text-3xl font-bold text-foreground sm:text-4xl">
+                  <h2 className="font-heading text-3xl font-bold text-foreground sm:text-4xl">
                     Nuestra Misión
                   </h2>
                 </div>
@@ -84,7 +80,7 @@ export default function MisionVisionPage() {
                 <Card className="border-primary/20 bg-gradient-to-br from-primary/5 to-primary/10">
                   <CardContent className="p-8">
                     <blockquote className="relative">
-                      <span className="absolute -top-4 -left-2 text-6xl text-primary/30 font-serif">"</span>
+                      <span className="absolute -top-4 -left-2 text-6xl text-primary/30 font-heading">"</span>
                       <p className="text-xl font-medium text-foreground leading-relaxed pl-6">
                         Creemos que cada niño tiene un potencial único que merece ser descubierto, 
                         nutrido y celebrado. Nuestra misión es ser el espacio donde ese potencial florece.
@@ -105,7 +101,7 @@ export default function MisionVisionPage() {
                 <Card className="border-primary/20 bg-gradient-to-br from-secondary/5 to-secondary/10">
                   <CardContent className="p-8">
                     <blockquote className="relative">
-                      <span className="absolute -top-4 -left-2 text-6xl text-primary/30 font-serif">"</span>
+                      <span className="absolute -top-4 -left-2 text-6xl text-primary/30 font-heading">"</span>
                       <p className="text-xl font-medium text-foreground leading-relaxed pl-6">
                         Imaginamos un futuro donde nuestros egresados lideran con integridad, 
                         contribuyen a su comunidad y transforman positivamente el mundo que los rodea.
@@ -119,7 +115,7 @@ export default function MisionVisionPage() {
                   <div className="flex h-14 w-14 items-center justify-center rounded-2xl bg-primary/10">
                     <Eye className="h-7 w-7 text-primary" />
                   </div>
-                  <h2 className="font-serif text-3xl font-bold text-foreground sm:text-4xl">
+                  <h2 className="font-heading text-3xl font-bold text-foreground sm:text-4xl">
                     Nuestra Visión
                   </h2>
                 </div>
@@ -149,7 +145,7 @@ export default function MisionVisionPage() {
         <section className="py-16 lg:py-24">
           <div className="mx-auto max-w-7xl px-4">
             <div className="text-center mb-16">
-              <h2 className="font-serif text-3xl font-bold text-foreground sm:text-4xl mb-4">
+              <h2 className="font-heading text-3xl font-bold text-foreground sm:text-4xl mb-4">
                 Pilares de Nuestra Filosofía
               </h2>
               <p className="text-muted-foreground max-w-2xl mx-auto">
@@ -163,7 +159,7 @@ export default function MisionVisionPage() {
                   <div className="flex h-16 w-16 items-center justify-center rounded-2xl bg-primary/10 mx-auto mb-6">
                     <Heart className="h-8 w-8 text-primary" />
                   </div>
-                  <h3 className="font-serif text-xl font-semibold text-foreground mb-4">
+                  <h3 className="font-heading text-xl font-semibold text-foreground mb-4">
                     Educación con Amor
                   </h3>
                   <p className="text-muted-foreground text-sm leading-relaxed">
@@ -178,7 +174,7 @@ export default function MisionVisionPage() {
                   <div className="flex h-16 w-16 items-center justify-center rounded-2xl bg-primary/10 mx-auto mb-6">
                     <BookOpen className="h-8 w-8 text-primary" />
                   </div>
-                  <h3 className="font-serif text-xl font-semibold text-foreground mb-4">
+                  <h3 className="font-heading text-xl font-semibold text-foreground mb-4">
                     Excelencia Académica
                   </h3>
                   <p className="text-muted-foreground text-sm leading-relaxed">
@@ -193,7 +189,7 @@ export default function MisionVisionPage() {
                   <div className="flex h-16 w-16 items-center justify-center rounded-2xl bg-primary/10 mx-auto mb-6">
                     <Globe className="h-8 w-8 text-primary" />
                   </div>
-                  <h3 className="font-serif text-xl font-semibold text-foreground mb-4">
+                  <h3 className="font-heading text-xl font-semibold text-foreground mb-4">
                     Visión Global
                   </h3>
                   <p className="text-muted-foreground text-sm leading-relaxed">
@@ -209,7 +205,7 @@ export default function MisionVisionPage() {
         {/* CTA Section */}
         <section className="py-16 lg:py-24 bg-secondary text-white">
           <div className="mx-auto max-w-7xl px-4 text-center">
-            <h2 className="font-serif text-3xl font-bold sm:text-4xl mb-4">
+            <h2 className="font-heading text-3xl font-bold sm:text-4xl mb-4">
               Comparte Nuestra Visión
             </h2>
             <p className="text-white/80 max-w-2xl mx-auto mb-8">
@@ -227,7 +223,5 @@ export default function MisionVisionPage() {
           </div>
         </section>
       </main>
-      <Footer />
-    </>
   )
 }

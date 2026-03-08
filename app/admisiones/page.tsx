@@ -1,5 +1,5 @@
 ﻿import type { Metadata } from 'next'
-import { Clock3, FileCheck2, MessageSquareMore, School } from 'lucide-react'
+import { Clock3, FileCheck2, MapPin, MessageSquareMore, School, Sparkles } from 'lucide-react'
 import { CTASection } from '@/components/CTASection'
 import { ContactCard } from '@/components/ContactCard'
 import { FAQAccordion } from '@/components/FAQAccordion'
@@ -19,19 +19,29 @@ export const metadata: Metadata = {
 
 const admissionsHighlights = [
   {
-    title: 'Respuesta oportuna',
-    description: 'La estructura está pensada para resolver dudas rápido y mover a la familia al siguiente paso sin fricción.',
+    title: 'Atención personalizada',
+    description: 'Seguimiento cercano desde el primer contacto.',
     icon: MessageSquareMore,
   },
   {
-    title: 'Proceso claro',
-    description: 'Cada etapa tiene objetivos y requisitos definidos para que la experiencia se sienta transparente y ordenada.',
+    title: 'Proceso ordenado',
+    description: 'Cada etapa se entiende con rapidez y claridad.',
+    icon: MessageSquareMore,
+  },
+  {
+    title: 'Campus para conocer',
+    description: 'La visita ayuda a decidir con más confianza.',
+    icon: School,
+  },
+  {
+    title: '4 pasos',
+    description: 'Ruta simple para avanzar sin fricción.',
     icon: FileCheck2,
   },
   {
-    title: 'Visita guiada',
-    description: 'La página impulsa el agendado de recorridos y sostiene la conversación con información útil y bien jerarquizada.',
-    icon: School,
+    title: 'Respuesta oportuna',
+    description: 'Seguimiento ágil para continuar el proceso.',
+    icon: Clock3,
   },
 ]
 
@@ -47,23 +57,39 @@ export default function AdmisionesPage() {
         primaryCta={{ label: 'Solicitar informes', href: '#formulario' }}
         secondaryCta={{ label: 'Agendar visita', href: '/contacto' }}
         trustBullets={['Atención personalizada', 'Proceso ordenado', 'Campus para conocer en visita']}
-        stats={[
-          { value: '4 pasos', label: 'para iniciar', detail: 'Ruta simple para reducir fricción en la decisión.' },
-          { value: '<24 h', label: 'respuesta ideal', detail: 'Un tono cercano que invita al seguimiento rápido.' },
-          { value: '3 niveles', label: 'para elegir', detail: 'Maternal, Preescolar y Primaria con navegación directa.' },
-        ]}
+        imageBadge={{ value: '4 pasos', label: 'Proceso claro y acompañado', detail: 'Información ordenada para conocer niveles, requisitos y siguientes pasos.' }}
       />
+
+      <section className="border-y border-border/70 bg-white/80 py-7">
+        <div className="container-shell">
+          <div className="grid gap-8 sm:grid-cols-2 lg:grid-cols-5">
+            {admissionsHighlights.map((item) => {
+              const Icon = item.icon
+              return (
+                <div key={item.title} className="flex flex-col items-center text-center">
+                  <div className="flex h-12 w-12 items-center justify-center rounded-full bg-primary/12 text-primary">
+                    <Icon className="h-5 w-5" />
+                  </div>
+                  <h3 className="mt-4 text-lg font-semibold tracking-tight text-secondary">{item.title}</h3>
+                  <p className="mt-1 text-sm leading-relaxed text-muted-foreground">{item.description}</p>
+                </div>
+              )
+            })}
+          </div>
+        </div>
+      </section>
 
       <section className="section-space">
         <div className="container-shell">
           <SectionHeading
             eyebrow="Ruta de admisión"
-            title="La información principal aparece en el orden en que la familia la necesita"
-            description="Primero se comunica confianza, después el proceso, luego la oferta educativa y finalmente la conversión. Esa secuencia hace que la página se sienta clara y profesional."
+            title="La información aparece en el orden en que la familia la necesita"
+            description="Primero confianza, luego proceso, después niveles y finalmente conversión. Esa secuencia hace que la página se sienta clara y profesional."
           />
           <div className="grid gap-4 lg:grid-cols-4">
             {admissionsSteps.map((step) => (
-              <div key={step.step} className="card-soft p-6">
+              <div key={step.step} className="relative overflow-hidden rounded-[1.6rem] border border-primary/18 bg-white p-6 shadow-[0_18px_38px_-30px_rgba(12,29,55,0.18)]">
+                <div className="absolute inset-x-0 top-0 h-1.5 bg-[linear-gradient(90deg,rgba(210,176,17,0.95),rgba(210,176,17,0.2))]" />
                 <div className="flex h-11 w-11 items-center justify-center rounded-2xl bg-primary/12 text-lg font-semibold text-primary">
                   {step.step}
                 </div>
@@ -71,25 +97,6 @@ export default function AdmisionesPage() {
                 <p className="mt-3 text-sm leading-relaxed text-muted-foreground">{step.description}</p>
               </div>
             ))}
-          </div>
-        </div>
-      </section>
-
-      <section className="section-space section-warm">
-        <div className="container-shell">
-          <div className="grid gap-5 lg:grid-cols-3">
-            {admissionsHighlights.map((item) => {
-              const Icon = item.icon
-              return (
-                <div key={item.title} className="card-soft p-6">
-                  <div className="flex h-12 w-12 items-center justify-center rounded-2xl bg-primary/12">
-                    <Icon className="h-5 w-5 text-primary" />
-                  </div>
-                  <h3 className="mt-5 text-xl font-semibold tracking-tight text-foreground">{item.title}</h3>
-                  <p className="mt-3 text-sm leading-relaxed text-muted-foreground">{item.description}</p>
-                </div>
-              )
-            })}
           </div>
         </div>
       </section>
@@ -122,8 +129,8 @@ export default function AdmisionesPage() {
             <div>
               <SectionHeading
                 eyebrow="Requisitos"
-                title="Documentación explicada con claridad, sin sobrecargar la página"
-                description="La sección resume los básicos para disminuir incertidumbre y mantener el foco en la conversión principal."
+                title="Documentación explicada con claridad y sin fricción innecesaria"
+                description="La sección resume lo esencial para disminuir incertidumbre y mantener el foco en el siguiente paso."
                 align="left"
               />
               <div className="grid gap-3 sm:grid-cols-2">
@@ -133,7 +140,10 @@ export default function AdmisionesPage() {
                 <StatCard value="Tiempo" label="proceso acompañado" detail="La narrativa baja fricción y anticipa próximos pasos." />
               </div>
             </div>
-            <div className="card-elevated p-6 sm:p-8">
+            <div className="card-elevated relative overflow-hidden border-primary/12 p-6 sm:p-8">
+              <div className="absolute right-6 top-6 hidden rounded-full bg-secondary px-3 py-1 text-xs font-semibold uppercase tracking-[0.18em] text-secondary-foreground md:inline-flex">
+                Requisitos básicos
+              </div>
               <h3 className="text-2xl font-semibold tracking-tight text-foreground">Lo básico para comenzar</h3>
               <ul className="mt-6 space-y-4 text-sm leading-relaxed text-muted-foreground">
                 <li>Acta de nacimiento del alumno.</li>
@@ -141,7 +151,7 @@ export default function AdmisionesPage() {
                 <li>Comprobante de domicilio e identificación del tutor.</li>
                 <li>Documentación académica previa cuando aplique.</li>
               </ul>
-              <div className="mt-8 card-soft p-5">
+              <div className="mt-8 rounded-[1.25rem] border border-primary/15 bg-white/90 p-5 shadow-[0_18px_36px_-30px_rgba(12,29,55,0.2)]">
                 <div className="flex items-center gap-3 text-sm font-medium text-foreground">
                   <Clock3 className="h-4 w-4 text-primary" />
                   La información detallada puede ampliarse por nivel al recibir la solicitud.
@@ -159,13 +169,13 @@ export default function AdmisionesPage() {
               <SectionHeading
                 eyebrow="Conversión"
                 title="Formulario, contacto y contexto en una sola vista"
-                description="La página cierra con una zona diseñada para que la familia tenga confianza antes de dejar sus datos."
+                description="La página cierra con una zona clara para que la familia tenga confianza antes de dejar sus datos."
                 align="left"
               />
               <div className="space-y-4">
                 <ContactCard />
-                <div className="card-soft p-5 text-sm leading-relaxed text-muted-foreground">
-                  La composición del bloque prioriza claridad, buena lectura móvil y suficiente información para decidir sin distracciones.
+                <div className="rounded-[1.25rem] border border-primary/15 bg-white/90 p-5 text-sm leading-relaxed text-muted-foreground shadow-[0_18px_36px_-30px_rgba(12,29,55,0.2)]">
+                  La composición prioriza claridad, buena lectura móvil y suficiente información para decidir sin distracciones.
                 </div>
               </div>
             </div>

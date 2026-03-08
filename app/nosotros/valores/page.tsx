@@ -1,7 +1,5 @@
 import { Metadata } from "next"
 import Link from "next/link"
-import { Header } from "@/components/header"
-import { Footer } from "@/components/footer"
 import { Button } from "@/components/ui/button"
 import { Card, CardContent } from "@/components/ui/card"
 import { ChevronRight, Heart, Users, Shield, Lightbulb, HandHeart, Star } from "lucide-react"
@@ -52,8 +50,6 @@ const valores = [
 
 export default function ValoresPage() {
   return (
-    <>
-      <Header />
       <main className="min-h-screen bg-background">
         {/* Breadcrumb */}
         <div className="border-b border-primary/20 bg-card">
@@ -77,7 +73,7 @@ export default function ValoresPage() {
                 <Heart className="h-4 w-4" />
                 Formación Integral
               </span>
-              <h1 className="font-serif text-4xl font-bold text-white sm:text-5xl lg:text-6xl mb-6 text-balance">
+              <h1 className="font-heading text-4xl font-bold text-white sm:text-5xl lg:text-6xl mb-6 text-balance">
                 Nuestros Valores
               </h1>
               <p className="text-lg text-white/80 leading-relaxed">
@@ -92,7 +88,7 @@ export default function ValoresPage() {
         <section className="py-16 lg:py-24">
           <div className="mx-auto max-w-7xl px-4">
             <div className="max-w-3xl mx-auto text-center">
-              <h2 className="font-serif text-3xl font-bold text-foreground sm:text-4xl mb-6">
+              <h2 className="font-heading text-3xl font-bold text-foreground sm:text-4xl mb-6">
                 Educación que Transforma
               </h2>
               <p className="text-lg text-muted-foreground leading-relaxed">
@@ -115,7 +111,7 @@ export default function ValoresPage() {
                       <div className={`flex h-16 w-16 items-center justify-center rounded-2xl ${valor.color} mb-6`}>
                         <valor.icon className="h-8 w-8" />
                       </div>
-                      <h3 className="font-serif text-2xl font-semibold text-foreground mb-4">
+                      <h3 className="font-heading text-2xl font-semibold text-foreground mb-4">
                         {valor.title}
                       </h3>
                       <p className="text-muted-foreground leading-relaxed">
@@ -134,7 +130,7 @@ export default function ValoresPage() {
         <section className="py-16 lg:py-24 bg-muted/50">
           <div className="mx-auto max-w-7xl px-4">
             <div className="text-center mb-16">
-              <h2 className="font-serif text-3xl font-bold text-foreground sm:text-4xl mb-4">
+              <h2 className="font-heading text-3xl font-bold text-foreground sm:text-4xl mb-4">
                 Cómo Vivimos los Valores
               </h2>
               <p className="text-muted-foreground max-w-2xl mx-auto">
@@ -230,7 +226,7 @@ export default function ValoresPage() {
             <Card className="border-primary/20 bg-gradient-to-r from-primary/5 to-secondary/5 overflow-hidden">
               <CardContent className="p-12 text-center">
                 <blockquote className="max-w-3xl mx-auto">
-                  <p className="font-serif text-2xl md:text-3xl font-medium text-foreground leading-relaxed mb-6">
+                  <p className="font-heading text-2xl md:text-3xl font-medium text-foreground leading-relaxed mb-6">
                     "La educación es el arma más poderosa que puedes usar para cambiar el mundo, 
                     y los valores son los cimientos sobre los que construimos ese cambio."
                   </p>
@@ -246,7 +242,7 @@ export default function ValoresPage() {
         {/* CTA Section */}
         <section className="py-16 lg:py-24 bg-secondary text-white">
           <div className="mx-auto max-w-7xl px-4 text-center">
-            <h2 className="font-serif text-3xl font-bold sm:text-4xl mb-4">
+            <h2 className="font-heading text-3xl font-bold sm:text-4xl mb-4">
               Forma Parte de Nuestra Comunidad
             </h2>
             <p className="text-white/80 max-w-2xl mx-auto mb-8">
@@ -264,7 +260,5 @@ export default function ValoresPage() {
           </div>
         </section>
       </main>
-      <Footer />
-    </>
   )
 }

@@ -1,8 +1,6 @@
 import { Metadata } from "next"
 import Image from "next/image"
 import Link from "next/link"
-import { Header } from "@/components/header"
-import { Footer } from "@/components/footer"
 import { Button } from "@/components/ui/button"
 import { Card, CardContent } from "@/components/ui/card"
 import { ChevronRight, Calendar, Award, Users, Building } from "lucide-react"
@@ -53,8 +51,6 @@ const timelineEvents = [
 
 export default function HistoriaPage() {
   return (
-    <>
-      <Header />
       <main className="min-h-screen bg-background">
         {/* Breadcrumb */}
         <div className="border-b border-primary/20 bg-card">
@@ -78,7 +74,7 @@ export default function HistoriaPage() {
                 <Calendar className="h-4 w-4" />
                 Desde 1993
               </span>
-              <h1 className="font-serif text-4xl font-bold text-white sm:text-5xl lg:text-6xl mb-6 text-balance">
+              <h1 className="font-heading text-4xl font-bold text-white sm:text-5xl lg:text-6xl mb-6 text-balance">
                 Nuestra Historia
               </h1>
               <p className="text-lg text-white/80 leading-relaxed">
@@ -94,7 +90,7 @@ export default function HistoriaPage() {
           <div className="mx-auto max-w-7xl px-4">
             <div className="grid lg:grid-cols-2 gap-12 items-center">
               <div>
-                <h2 className="font-serif text-3xl font-bold text-foreground sm:text-4xl mb-6">
+                <h2 className="font-heading text-3xl font-bold text-foreground sm:text-4xl mb-6">
                   Una Tradición de Excelencia Educativa
                 </h2>
                 <div className="space-y-4 text-muted-foreground leading-relaxed">
@@ -133,7 +129,7 @@ export default function HistoriaPage() {
         <section className="py-16 lg:py-24 bg-muted/50">
           <div className="mx-auto max-w-7xl px-4">
             <div className="text-center mb-16">
-              <h2 className="font-serif text-3xl font-bold text-foreground sm:text-4xl mb-4">
+              <h2 className="font-heading text-3xl font-bold text-foreground sm:text-4xl mb-4">
                 Nuestro Recorrido
               </h2>
               <p className="text-muted-foreground max-w-2xl mx-auto">
@@ -161,7 +157,7 @@ export default function HistoriaPage() {
                             </div>
                             <span className="text-2xl font-bold text-primary">{event.year}</span>
                           </div>
-                          <h3 className="font-serif text-xl font-semibold text-foreground mb-2">
+                          <h3 className="font-heading text-xl font-semibold text-foreground mb-2">
                             {event.title}
                           </h3>
                           <p className="text-muted-foreground text-sm leading-relaxed">
@@ -207,7 +203,7 @@ export default function HistoriaPage() {
         {/* CTA Section */}
         <section className="py-16 lg:py-24">
           <div className="mx-auto max-w-7xl px-4 text-center">
-            <h2 className="font-serif text-3xl font-bold text-foreground sm:text-4xl mb-4">
+            <h2 className="font-heading text-3xl font-bold text-foreground sm:text-4xl mb-4">
               Sé Parte de Nuestra Historia
             </h2>
             <p className="text-muted-foreground max-w-2xl mx-auto mb-8">
@@ -224,7 +220,5 @@ export default function HistoriaPage() {
           </div>
         </section>
       </main>
-      <Footer />
-    </>
   )
 }
