@@ -281,7 +281,7 @@ export default function EquipoPage() {
               <Button asChild size="lg" className="bg-primary text-primary-foreground hover:bg-primary/90">
                 <Link href="/admisiones/agenda-visita">Agendar Visita</Link>
               </Button>
-              <Button asChild size="lg" variant="outline" className="border-white text-white hover:bg-white/10">
+              <Button asChild size="lg" variant="outline" className="border-white bg-white text-[var(--brown-dark)] hover:bg-[#F6F0E4]">
                 <Link href="/admisiones">Ver Proceso de Admisión</Link>
               </Button>
             </div>
