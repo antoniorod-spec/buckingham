@@ -4,33 +4,30 @@
 @custom-variant dark (&:is(.dark *));
 
 :root {
-  --navy: #13294b;
-  --navy-deep: #0c1d37;
-  --navy-soft: #41516f;
   --gold: #D2B011;
   --gold-hover: #BE9F0F;
   --brown: #7F571A;
   --brown-dark: #6D4A16;
-  --background: #FBFAF7;
+  --background: #FCFAF5;
   --surface: #FFFFFF;
-  --warm-section: #F4F7FB;
-  --gold-tint: #F8F2DE;
-  --text-main: var(--navy-deep);
-  --text-secondary: #5E6C83;
-  --border: #DDE4EE;
+  --warm-section: #F6F0E4;
+  --gold-tint: #F7F1D8;
+  --text-main: #3E2F1C;
+  --text-secondary: #6B5A45;
+  --border: #E6DCCB;
   --foreground: var(--text-main);
   --card: var(--surface);
   --card-foreground: var(--text-main);
   --popover: var(--surface);
   --popover-foreground: var(--text-main);
   --primary: var(--gold);
-  --primary-foreground: var(--navy-deep);
-  --secondary: var(--navy);
-  --secondary-foreground: var(--background);
-  --muted: #F1F4F8;
+  --primary-foreground: var(--brown-dark);
+  --secondary: var(--brown);
+  --secondary-foreground: var(--surface);
+  --muted: #F7F1E7;
   --muted-foreground: var(--text-secondary);
-  --accent: #EEF3F9;
-  --accent-foreground: var(--navy-deep);
+  --accent: #F3E9D5;
+  --accent-foreground: var(--brown-dark);
   --destructive: oklch(0.577 0.245 27.325);
   --destructive-foreground: oklch(0.99 0 0);
   --input: var(--border);
@@ -79,9 +76,9 @@
   body {
     @apply bg-background font-sans text-foreground antialiased;
     background-image:
-      radial-gradient(circle at top left, rgba(19, 41, 75, 0.08), transparent 24%),
+      radial-gradient(circle at top left, rgba(127, 87, 26, 0.08), transparent 24%),
       radial-gradient(circle at top right, rgba(210, 176, 17, 0.12), transparent 18%),
-      linear-gradient(180deg, rgba(255, 255, 255, 0.82) 0%, rgba(251, 250, 247, 1) 16%);
+      linear-gradient(180deg, rgba(255, 255, 255, 0.82) 0%, rgba(252, 250, 245, 1) 16%);
   }
 
   h1,
@@ -118,12 +115,12 @@
 
   .card-elevated {
     @apply rounded-[1.75rem] border border-border bg-surface;
-    box-shadow: 0 28px 50px -34px rgba(12, 29, 55, 0.22);
+    box-shadow: 0 28px 50px -34px rgba(109, 74, 22, 0.16);
   }
 
   .card-soft {
     @apply rounded-[1.5rem] border border-border/70 bg-white/90;
-    box-shadow: 0 16px 36px -30px rgba(12, 29, 55, 0.18);
+    box-shadow: 0 16px 36px -30px rgba(109, 74, 22, 0.14);
   }
 
   .section-warm {
