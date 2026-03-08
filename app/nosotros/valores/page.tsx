@@ -1,186 +1,264 @@
-﻿import type { Metadata } from 'next'
-import Link from 'next/link'
-import {
-  ChevronRight,
-  HandHeart,
-  Heart,
-  Lightbulb,
-  Shield,
-  Sparkles,
-  Star,
-  Users,
-} from 'lucide-react'
-import { CTASection } from '@/components/CTASection'
-import { PageHero } from '@/components/PageHero'
-import { SectionHeading } from '@/components/SectionHeading'
-import { images } from '@/lib/content/images'
+﻿import { Metadata } from "next"
+import Link from "next/link"
+import { Button } from "@/components/ui/button"
+import { Card, CardContent } from "@/components/ui/card"
+import { ChevronRight, Heart, Users, Shield, Lightbulb, HandHeart, Star } from "lucide-react"
 
 export const metadata: Metadata = {
-  title: 'Valores | Instituto Buckingham',
-  description:
-    'Descubre los valores que sostienen la formación integral en Instituto Buckingham: respeto, responsabilidad, honestidad, solidaridad y trabajo en equipo.',
+  title: "Valores | Instituto Buckingham",
+  description: "Los valores que guían la formación integral en Instituto Buckingham: respeto, responsabilidad, honestidad, solidaridad y más.",
 }
 
-const values = [
+const valores = [
   {
-    title: 'Respeto',
-    description:
-      'Promovemos relaciones basadas en dignidad, escucha y consideración hacia uno mismo, los demás y el entorno.',
     icon: Heart,
+    title: "Respeto",
+    description: "Fomentamos el respeto hacia uno mismo, hacia los demás y hacia el entorno. Enseñamos a valorar las diferencias y a tratar a todos con dignidad y consideración.",
+    color: "bg-rose-50 text-rose-600",
   },
   {
-    title: 'Responsabilidad',
-    description:
-      'Acompañamos a los alumnos para que desarrollen hábitos, compromiso y conciencia sobre sus decisiones.',
     icon: Shield,
+    title: "Responsabilidad",
+    description: "Cultivamos la responsabilidad personal y social. Nuestros alumnos aprenden a cumplir sus compromisos, cuidar sus pertenencias y asumir las consecuencias de sus acciones.",
+    color: "bg-blue-50 text-blue-600",
   },
   {
-    title: 'Honestidad',
-    description:
-      'Valoramos la verdad, la coherencia y la integridad como base de la convivencia y del aprendizaje.',
     icon: Star,
+    title: "Honestidad",
+    description: "Promovemos la verdad y la integridad en todas las acciones. Valoramos la sinceridad, la transparencia y el actuar de manera ética en todas las situaciones.",
+    color: "bg-amber-50 text-amber-600",
   },
   {
-    title: 'Solidaridad',
-    description:
-      'Formamos niños sensibles ante los demás, capaces de colaborar y de actuar con empatía en su comunidad.',
     icon: HandHeart,
+    title: "Solidaridad",
+    description: "Inspiramos el espíritu de ayuda y colaboración. Enseñamos a nuestros alumnos a ser sensibles ante las necesidades de otros y a contribuir al bienestar de su comunidad.",
+    color: "bg-emerald-50 text-emerald-600",
   },
   {
-    title: 'Trabajo en equipo',
-    description:
-      'El aula es también un espacio para construir juntos, valorar aportaciones distintas y aprender a colaborar.',
     icon: Users,
+    title: "Trabajo en Equipo",
+    description: "Desarrollamos habilidades de colaboración y comunicación. Los proyectos grupales enseñan a valorar las aportaciones de cada persona y a lograr metas en conjunto.",
+    color: "bg-violet-50 text-violet-600",
   },
   {
-    title: 'Creatividad',
-    description:
-      'Impulsamos ideas originales, curiosidad y nuevas maneras de resolver problemas con confianza.',
     icon: Lightbulb,
+    title: "Creatividad",
+    description: "Estimulamos el pensamiento innovador y la expresión original. Celebramos las ideas únicas y animamos a nuestros alumnos a explorar nuevas formas de resolver problemas.",
+    color: "bg-orange-50 text-orange-600",
   },
-]
-
-const howWeLiveValues = [
-  'Los docentes modelan con su ejemplo la forma de relacionarse y resolver conflictos.',
-  'Las rutinas escolares convierten los valores en hábitos visibles, no solo en discursos.',
-  'La relación con familias refuerza la coherencia entre escuela y casa.',
-  'Los proyectos y actividades grupales permiten practicar empatía, colaboración y responsabilidad.',
 ]
 
 export default function ValoresPage() {
   return (
-    <div className="flex flex-col">
-      <div className="border-b border-border/70 bg-white/90">
-        <div className="container-shell py-3">
-          <nav className="flex items-center gap-2 text-sm text-muted-foreground">
-            <Link href="/" className="transition-colors hover:text-primary">
-              Inicio
-            </Link>
-            <ChevronRight className="h-4 w-4" />
-            <Link href="/nosotros" className="transition-colors hover:text-primary">
-              Nosotros
-            </Link>
-            <ChevronRight className="h-4 w-4" />
-            <span className="font-medium text-foreground">Valores</span>
-          </nav>
-        </div>
-      </div>
-
-      <PageHero
-        eyebrow="Formación integral"
-        title="Valores que sostienen la experiencia académica y humana del colegio"
-        description="En Buckingham, la formación va más allá de contenidos. Cada etapa busca desarrollar respeto, responsabilidad, empatía y seguridad para convivir y aprender mejor."
-        image={images.home.hero}
-        imageAlt="Valores de Instituto Buckingham"
-        primaryCta={{ label: 'Solicitar informes', href: '/admisiones' }}
-        secondaryCta={{ label: 'Agendar visita', href: '/contacto' }}
-        trustBullets={['Respeto', 'Responsabilidad', 'Solidaridad', 'Trabajo en equipo']}
-        imageBadge={{
-          value: 'Valores',
-          label: 'Visibles en la vida diaria',
-          detail: 'La cultura escolar también educa.',
-        }}
-      />
-
-      <section className="section-space section-warm">
-        <div className="container-shell">
-          <SectionHeading
-            eyebrow="Principios"
-            title="Valores que se viven con claridad en cada etapa"
-            description="La propuesta formativa del colegio busca que los alumnos crezcan con bases humanas firmes, no solo con aprendizajes académicos."
-          />
-          <div className="grid gap-5 md:grid-cols-2 xl:grid-cols-3">
-            {values.map((value) => {
-              const Icon = value.icon
-
-              return (
-                <article
-                  key={value.title}
-                  className="rounded-[1.75rem] border border-primary/18 bg-white p-6 shadow-[0_18px_38px_-30px_rgba(12,29,55,0.18)]"
-                >
-                  <div className="flex h-12 w-12 items-center justify-center rounded-2xl bg-primary/12 text-primary">
-                    <Icon className="h-5 w-5" />
-                  </div>
-                  <h3 className="mt-5 text-[1.35rem] font-semibold tracking-tight text-secondary">
-                    {value.title}
-                  </h3>
-                  <p className="mt-3 text-sm leading-relaxed text-muted-foreground">{value.description}</p>
-                </article>
-              )
-            })}
+      <main className="min-h-screen bg-background">
+        {/* Breadcrumb */}
+        <div className="border-b border-primary/20 bg-card">
+          <div className="mx-auto max-w-7xl px-4 py-3">
+            <nav className="flex items-center gap-2 text-sm text-muted-foreground">
+              <Link href="/" className="hover:text-primary transition-colors">Inicio</Link>
+              <ChevronRight className="h-4 w-4" />
+              <span>Nosotros</span>
+              <ChevronRight className="h-4 w-4" />
+              <span className="text-foreground font-medium">Valores</span>
+            </nav>
           </div>
         </div>
-      </section>
 
-      <section className="section-space">
-        <div className="container-shell">
-          <div className="grid gap-10 lg:grid-cols-[0.9fr_1.1fr] lg:items-start">
-            <SectionHeading
-              eyebrow="Vida escolar"
-              title="Cómo se vuelven visibles en la experiencia diaria"
-              description="Los valores se fortalecen cuando aparecen en la convivencia, en el lenguaje del colegio y en la forma de acompañar a cada alumno."
-              align="left"
-              className="mb-0"
-            />
-            <div className="grid gap-4 sm:grid-cols-2">
-              {howWeLiveValues.map((item, index) => (
-                <article
-                  key={item}
-                  className="rounded-[1.55rem] border border-primary/18 bg-white p-5 shadow-[0_18px_38px_-30px_rgba(12,29,55,0.18)]"
-                >
-                  <div className="flex h-10 w-10 items-center justify-center rounded-full bg-primary text-primary-foreground">
-                    {index + 1}
-                  </div>
-                  <p className="mt-4 text-sm leading-relaxed text-muted-foreground">{item}</p>
-                </article>
+        {/* Hero Section */}
+        <section className="relative overflow-hidden bg-gradient-to-b from-[var(--brown)] to-[var(--brown-dark)] py-20 lg:py-28">
+          <div className="absolute inset-0 bg-[url('/images/pattern.png')] opacity-5" />
+          <div className="relative mx-auto max-w-7xl px-4">
+            <div className="mx-auto max-w-3xl text-center">
+              <span className="inline-flex items-center gap-2 rounded-full bg-primary/20 px-4 py-1.5 text-sm font-medium text-primary mb-6">
+                <Heart className="h-4 w-4" />
+                Formación Integral
+              </span>
+              <h1 className="font-heading text-4xl font-bold text-white sm:text-5xl lg:text-6xl mb-6 text-balance">
+                Nuestros Valores
+              </h1>
+              <p className="text-lg text-white/80 leading-relaxed">
+                Los valores son el corazón de nuestra propuesta educativa. Más que enseñar contenidos, 
+                formamos personas íntegras que harán la diferencia en el mundo.
+              </p>
+            </div>
+          </div>
+        </section>
+
+        {/* Intro Section */}
+        <section className="py-16 lg:py-24">
+          <div className="mx-auto max-w-7xl px-4">
+            <div className="max-w-3xl mx-auto text-center">
+              <h2 className="font-heading text-3xl font-bold text-foreground sm:text-4xl mb-6">
+                Educación que Transforma
+              </h2>
+              <p className="text-lg text-muted-foreground leading-relaxed">
+                En Instituto Buckingham creemos que la verdadera educación va más allá de los conocimientos 
+                académicos. Por eso, integramos la formación en valores en cada actividad, desde el salón 
+                de clases hasta el recreo, desde los proyectos escolares hasta las ceremonias cívicas.
+              </p>
+            </div>
+          </div>
+        </section>
+
+        {/* Values Grid */}
+        <section className="py-8 lg:py-16">
+          <div className="mx-auto max-w-7xl px-4">
+            <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+              {valores.map((valor) => (
+                <Card key={valor.title} className="border-primary/20 hover:shadow-xl transition-all hover:-translate-y-1 overflow-hidden">
+                  <CardContent className="p-0">
+                    <div className="p-8">
+                      <div className={`flex h-16 w-16 items-center justify-center rounded-2xl ${valor.color} mb-6`}>
+                        <valor.icon className="h-8 w-8" />
+                      </div>
+                      <h3 className="font-heading text-2xl font-semibold text-foreground mb-4">
+                        {valor.title}
+                      </h3>
+                      <p className="text-muted-foreground leading-relaxed">
+                        {valor.description}
+                      </p>
+                    </div>
+                    <div className="h-1 bg-gradient-to-r from-primary/50 to-primary" />
+                  </CardContent>
+                </Card>
               ))}
             </div>
           </div>
-        </div>
-      </section>
+        </section>
 
-      <section className="section-space section-tint">
-        <div className="container-shell">
-          <div className="card-elevated p-8 text-center sm:p-10">
-            <div className="mx-auto flex h-14 w-14 items-center justify-center rounded-2xl bg-primary/12 text-primary">
-              <Sparkles className="h-6 w-6" />
+        {/* How We Teach Values */}
+        <section className="py-16 lg:py-24 bg-muted/50">
+          <div className="mx-auto max-w-7xl px-4">
+            <div className="text-center mb-16">
+              <h2 className="font-heading text-3xl font-bold text-foreground sm:text-4xl mb-4">
+                Cómo Vivimos los Valores
+              </h2>
+              <p className="text-muted-foreground max-w-2xl mx-auto">
+                Los valores no se enseñan solo con palabras, sino con acciones y ejemplo diario.
+              </p>
             </div>
-            <h2 className="mx-auto mt-6 max-w-3xl text-3xl font-semibold tracking-tight text-secondary sm:text-4xl">
-              Educar en valores también es construir una comunidad más clara, segura y humana
-            </h2>
-            <p className="mx-auto mt-4 max-w-3xl text-sm leading-relaxed text-muted-foreground sm:text-base">
-              Cuando los valores se sostienen con consistencia, la experiencia escolar se vuelve más confiable para alumnos, familias y docentes.
-            </p>
-          </div>
-        </div>
-      </section>
 
-      <CTASection
-        title="Si buscas una educación con bases humanas firmes, vale la pena conocer Buckingham"
-        description="Podemos mostrarte cómo estos valores se traducen en ambiente escolar, acompañamiento y una relación cercana con cada familia."
-        primaryCta={{ label: 'Agendar visita', href: '/contacto' }}
-        secondaryCta={{ label: 'Conocer al equipo', href: '/nosotros/equipo' }}
-      />
-    </div>
+            <div className="grid md:grid-cols-2 gap-8 max-w-4xl mx-auto">
+              <div className="flex gap-4">
+                <div className="flex h-10 w-10 shrink-0 items-center justify-center rounded-full bg-primary text-primary-foreground font-bold">
+                  1
+                </div>
+                <div>
+                  <h3 className="font-semibold text-foreground mb-2">Ejemplo de los Docentes</h3>
+                  <p className="text-muted-foreground text-sm">
+                    Nuestros maestros modelan los valores que queremos inculcar, siendo ejemplos 
+                    vivos de respeto, responsabilidad y honestidad en cada interacción.
+                  </p>
+                </div>
+              </div>
+
+              <div className="flex gap-4">
+                <div className="flex h-10 w-10 shrink-0 items-center justify-center rounded-full bg-primary text-primary-foreground font-bold">
+                  2
+                </div>
+                <div>
+                  <h3 className="font-semibold text-foreground mb-2">Reflexión Diaria</h3>
+                  <p className="text-muted-foreground text-sm">
+                    Cada día iniciamos con un momento de reflexión donde abordamos situaciones 
+                    cotidianas que permiten practicar y reforzar los valores.
+                  </p>
+                </div>
+              </div>
+
+              <div className="flex gap-4">
+                <div className="flex h-10 w-10 shrink-0 items-center justify-center rounded-full bg-primary text-primary-foreground font-bold">
+                  3
+                </div>
+                <div>
+                  <h3 className="font-semibold text-foreground mb-2">Proyectos Sociales</h3>
+                  <p className="text-muted-foreground text-sm">
+                    Organizamos actividades de servicio a la comunidad donde los alumnos 
+                    experimentan la solidaridad y el impacto positivo que pueden tener.
+                  </p>
+                </div>
+              </div>
+
+              <div className="flex gap-4">
+                <div className="flex h-10 w-10 shrink-0 items-center justify-center rounded-full bg-primary text-primary-foreground font-bold">
+                  4
+                </div>
+                <div>
+                  <h3 className="font-semibold text-foreground mb-2">Reconocimientos</h3>
+                  <p className="text-muted-foreground text-sm">
+                    Celebramos y reconocemos públicamente a los alumnos que demuestran 
+                    los valores en su conducta diaria, motivando a todos a seguir su ejemplo.
+                  </p>
+                </div>
+              </div>
+
+              <div className="flex gap-4">
+                <div className="flex h-10 w-10 shrink-0 items-center justify-center rounded-full bg-primary text-primary-foreground font-bold">
+                  5
+                </div>
+                <div>
+                  <h3 className="font-semibold text-foreground mb-2">Colaboración con Familias</h3>
+                  <p className="text-muted-foreground text-sm">
+                    Trabajamos de la mano con los padres para reforzar los mismos valores 
+                    en casa, creando coherencia entre el hogar y la escuela.
+                  </p>
+                </div>
+              </div>
+
+              <div className="flex gap-4">
+                <div className="flex h-10 w-10 shrink-0 items-center justify-center rounded-full bg-primary text-primary-foreground font-bold">
+                  6
+                </div>
+                <div>
+                  <h3 className="font-semibold text-foreground mb-2">Resolución de Conflictos</h3>
+                  <p className="text-muted-foreground text-sm">
+                    Enseñamos a resolver diferencias de manera pacífica y respetuosa, 
+                    usando cada conflicto como oportunidad de aprendizaje.
+                  </p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        {/* Quote Section */}
+        <section className="py-16 lg:py-24">
+          <div className="mx-auto max-w-7xl px-4">
+            <Card className="border-primary/20 bg-gradient-to-r from-primary/5 to-[rgba(127,87,26,0.05)] overflow-hidden">
+              <CardContent className="p-12 text-center">
+                <blockquote className="max-w-3xl mx-auto">
+                  <p className="font-heading text-2xl md:text-3xl font-medium text-foreground leading-relaxed mb-6">
+                    "La educación es el arma más poderosa que puedes usar para cambiar el mundo, 
+                    y los valores son los cimientos sobre los que construimos ese cambio."
+                  </p>
+                  <footer className="text-muted-foreground">
+                    — Filosofía Instituto Buckingham
+                  </footer>
+                </blockquote>
+              </CardContent>
+            </Card>
+          </div>
+        </section>
+
+        {/* CTA Section */}
+        <section className="py-16 lg:py-24 bg-[var(--brown-dark)] text-white">
+          <div className="mx-auto max-w-7xl px-4 text-center">
+            <h2 className="font-heading text-3xl font-bold sm:text-4xl mb-4">
+              Forma Parte de Nuestra Comunidad
+            </h2>
+            <p className="text-white/80 max-w-2xl mx-auto mb-8">
+              Si compartes nuestros valores y buscas una educación integral para tu hijo, 
+              te invitamos a conocer nuestras instalaciones y propuesta educativa.
+            </p>
+            <div className="flex flex-col sm:flex-row gap-4 justify-center">
+              <Button asChild size="lg" className="bg-primary text-primary-foreground hover:bg-primary/90">
+                <Link href="/admisiones">Iniciar Proceso de Admisión</Link>
+              </Button>
+              <Button asChild size="lg" variant="outline" className="border-white text-white hover:bg-white/10">
+                <Link href="/nosotros/equipo">Conoce a Nuestro Equipo</Link>
+              </Button>
+            </div>
+          </div>
+        </section>
+      </main>
   )
 }

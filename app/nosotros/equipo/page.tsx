@@ -1,236 +1,292 @@
-﻿import type { Metadata } from 'next'
-import Image from 'next/image'
-import Link from 'next/link'
-import {
-  Award,
-  ChevronRight,
-  GraduationCap,
-  Heart,
-  Users,
-} from 'lucide-react'
-import { CTASection } from '@/components/CTASection'
-import { FeatureCard } from '@/components/FeatureCard'
-import { PageHero } from '@/components/PageHero'
-import { SectionHeading } from '@/components/SectionHeading'
-import { images } from '@/lib/content/images'
+﻿import { Metadata } from "next"
+import Image from "next/image"
+import Link from "next/link"
+import { Button } from "@/components/ui/button"
+import { Card, CardContent } from "@/components/ui/card"
+import { ChevronRight, Users, GraduationCap, Award, Heart } from "lucide-react"
 
 export const metadata: Metadata = {
-  title: 'Equipo Docente | Instituto Buckingham',
-  description:
-    'Conoce al equipo docente de Instituto Buckingham: profesionales comprometidos con la educación, el acompañamiento y la formación integral.',
+  title: "Equipo Docente | Instituto Buckingham",
+  description: "Conoce al equipo de profesionales dedicados a la educación de tus hijos en Instituto Buckingham. Docentes certificados y comprometidos.",
 }
 
 const directivos = [
   {
-    name: 'Lic. María Elena Rodríguez',
-    role: 'Dirección general',
-    description:
-      'Más de 25 años de experiencia en educación básica y una trayectoria dedicada a construir una comunidad escolar cercana, estable y exigente en lo académico.',
-    image: '/images/team-1.jpg',
+    name: "Lic. María Elena Rodríguez",
+    role: "Directora General",
+    description: "Más de 25 años de experiencia en educación básica. Fundadora y líder de nuestra comunidad educativa.",
+    image: "/images/team-1.jpg",
   },
   {
-    name: 'Lic. Patricia Hernández',
-    role: 'Coordinación académica',
-    description:
-      'Acompaña la estructura pedagógica del colegio y vela por la continuidad entre etapas, metodologías y seguimiento individual.',
-    image: '/images/team-2.jpg',
+    name: "Lic. Patricia Hernández",
+    role: "Coordinadora Académica",
+    description: "Especialista en pedagogía infantil con certificación en metodologías activas de aprendizaje.",
+    image: "/images/team-2.jpg",
   },
   {
-    name: 'Lic. Roberto Martínez',
-    role: 'Coordinación de inglés',
-    description:
-      'Especialista en enseñanza del idioma y en integración del inglés a la experiencia cotidiana con claridad y progresión real.',
-    image: '/images/team-3.jpg',
+    name: "Lic. Roberto Martínez",
+    role: "Coordinador de Inglés",
+    description: "Certificación CELTA de Cambridge. 15 años de experiencia en enseñanza de inglés como segunda lengua.",
+    image: "/images/team-3.jpg",
   },
 ]
 
-const proofItems = [
+const departamentos = [
   {
-    title: 'Equipo cercano',
-    description: 'Relación humana, clara y constante con cada familia.',
-    icon: Heart,
+    title: "Maternal y Preescolar",
+    count: "12 docentes",
+    description: "Especialistas en primera infancia, con formación en estimulación temprana, desarrollo socioemocional y metodología Montessori.",
   },
   {
-    title: 'Experiencia docente',
-    description: 'Profesionales preparados para cada etapa educativa.',
+    title: "Primaria",
+    count: "18 docentes",
+    description: "Profesores certificados en educación básica, con especialidades en matemáticas, ciencias, español e inglés.",
+  },
+  {
+    title: "Inglés",
+    count: "8 docentes",
+    description: "Maestros certificados por Cambridge con dominio nativo o avanzado del idioma y experiencia en enseñanza bilingüe.",
+  },
+  {
+    title: "Artes y Deportes",
+    count: "6 docentes",
+    description: "Profesionales en música, artes plásticas, danza y educación física, fomentando el desarrollo integral.",
+  },
+  {
+    title: "Apoyo Psicopedagógico",
+    count: "4 especialistas",
+    description: "Psicólogos y pedagogos que brindan acompañamiento individual y grupal a alumnos y familias.",
+  },
+  {
+    title: "Administrativo",
+    count: "10 colaboradores",
+    description: "Equipo dedicado a la atención a padres, administración escolar y mantenimiento de instalaciones.",
+  },
+]
+
+const caracteristicas = [
+  {
     icon: GraduationCap,
+    title: "Formación Continua",
+    description: "Nuestros docentes participan en programas de actualización permanente para estar al día con las mejores prácticas educativas.",
   },
   {
-    title: 'Trabajo colaborativo',
-    description: 'Coordinación entre áreas para acompañar mejor.',
-    icon: Users,
-  },
-  {
-    title: 'Actualización continua',
-    description: 'Formación docente con visión académica actual.',
     icon: Award,
-  },
-]
-
-const teamStrengths = [
-  {
-    title: 'Acompañamiento real',
-    description:
-      'El alumno no es un número. El equipo observa, conoce y da seguimiento cercano a cada proceso.',
-    icon: 'heart' as const,
+    title: "Certificaciones",
+    description: "Contamos con maestros certificados por Cambridge, SEP y otras instituciones reconocidas a nivel nacional e internacional.",
   },
   {
-    title: 'Criterio pedagógico',
-    description:
-      'Las decisiones académicas responden a cada etapa del desarrollo, con estructura y claridad para la familia.',
-    icon: 'graduation' as const,
+    icon: Heart,
+    title: "Vocación de Servicio",
+    description: "Seleccionamos profesionales que aman la educación y están comprometidos con el desarrollo integral de cada alumno.",
   },
   {
-    title: 'Comunicación constante',
-    description:
-      'La cercanía escuela-familia se sostiene con orden, escucha y seguimiento cotidiano.',
-    icon: 'message-circle' as const,
-  },
-  {
-    title: 'Visión compartida',
-    description:
-      'Todo el equipo trabaja bajo una misma promesa institucional: calidez, excelencia y atención personalizada.',
-    icon: 'users' as const,
+    icon: Users,
+    title: "Trabajo Colaborativo",
+    description: "Fomentamos el trabajo en equipo entre docentes para ofrecer una experiencia educativa coherente e integrada.",
   },
 ]
 
 export default function EquipoPage() {
   return (
-    <div className="flex flex-col">
-      <div className="border-b border-border/70 bg-white/90">
-        <div className="container-shell py-3">
-          <nav className="flex items-center gap-2 text-sm text-muted-foreground">
-            <Link href="/" className="transition-colors hover:text-primary">
-              Inicio
-            </Link>
-            <ChevronRight className="h-4 w-4" />
-            <Link href="/nosotros" className="transition-colors hover:text-primary">
-              Nosotros
-            </Link>
-            <ChevronRight className="h-4 w-4" />
-            <span className="font-medium text-foreground">Equipo Docente</span>
-          </nav>
-        </div>
-      </div>
-
-      <PageHero
-        eyebrow="Nuestro equipo"
-        title="Docentes y coordinadores que acompañan con experiencia y cercanía"
-        description="El equipo Buckingham combina preparación académica, sensibilidad educativa y seguimiento constante para que cada familia se sienta bien acompañada."
-        image={images.home.hero}
-        imageAlt="Equipo docente de Instituto Buckingham"
-        primaryCta={{ label: 'Solicitar informes', href: '/admisiones' }}
-        secondaryCta={{ label: 'Agendar visita', href: '/contacto' }}
-        trustBullets={['Acompañamiento cercano', 'Trabajo colaborativo', 'Experiencia por etapas']}
-        imageBadge={{
-          value: 'Equipo',
-          label: 'Atención humana y profesional',
-          detail: 'La calidad académica también se sostiene en quién acompaña.',
-        }}
-      />
-
-      <section className="border-y border-border/70 bg-white/80 py-7">
-        <div className="container-shell">
-          <div className="grid gap-8 sm:grid-cols-2 xl:grid-cols-4">
-            {proofItems.map((item) => {
-              const Icon = item.icon
-
-              return (
-                <div key={item.title} className="flex flex-col items-center text-center">
-                  <div className="flex h-12 w-12 items-center justify-center rounded-full bg-primary/12 text-primary">
-                    <Icon className="h-5 w-5" />
-                  </div>
-                  <h3 className="mt-4 text-lg font-semibold tracking-tight text-secondary">{item.title}</h3>
-                  <p className="mt-1 text-sm leading-relaxed text-muted-foreground">{item.description}</p>
-                </div>
-              )
-            })}
+      <main className="min-h-screen bg-background">
+        {/* Breadcrumb */}
+        <div className="border-b border-primary/20 bg-card">
+          <div className="mx-auto max-w-7xl px-4 py-3">
+            <nav className="flex items-center gap-2 text-sm text-muted-foreground">
+              <Link href="/" className="hover:text-primary transition-colors">Inicio</Link>
+              <ChevronRight className="h-4 w-4" />
+              <span>Nosotros</span>
+              <ChevronRight className="h-4 w-4" />
+              <span className="text-foreground font-medium">Equipo Docente</span>
+            </nav>
           </div>
         </div>
-      </section>
 
-      <section className="section-space">
-        <div className="container-shell">
-          <SectionHeading
-            eyebrow="Equipo directivo"
-            title="Personas que dan forma a la experiencia educativa del colegio"
-            description="La dirección y la coordinación académica sostienen un proyecto ordenado, cálido y consistente entre niveles."
-          />
-          <div className="grid gap-6 md:grid-cols-3">
-            {directivos.map((person) => (
-              <article
-                key={person.name}
-                className="overflow-hidden rounded-[1.75rem] border border-primary/18 bg-white shadow-[0_18px_38px_-30px_rgba(12,29,55,0.18)]"
-              >
-                <div className="relative aspect-[4/3] bg-primary/8">
-                  <Image
-                    src={person.image}
-                    alt={person.name}
-                    fill
-                    className="object-cover"
-                    sizes="(max-width: 768px) 100vw, 33vw"
-                  />
-                </div>
-                <div className="p-6">
-                  <p className="text-xs font-semibold uppercase tracking-[0.18em] text-primary">
-                    {person.role}
-                  </p>
-                  <h3 className="mt-3 text-xl font-semibold text-secondary">{person.name}</h3>
-                  <p className="mt-3 text-sm leading-relaxed text-muted-foreground">{person.description}</p>
-                </div>
-              </article>
-            ))}
+        {/* Hero Section */}
+        <section className="relative overflow-hidden bg-gradient-to-b from-[var(--brown)] to-[var(--brown-dark)] py-20 lg:py-28">
+          <div className="absolute inset-0 bg-[url('/images/pattern.png')] opacity-5" />
+          <div className="relative mx-auto max-w-7xl px-4">
+            <div className="mx-auto max-w-3xl text-center">
+              <span className="inline-flex items-center gap-2 rounded-full bg-primary/20 px-4 py-1.5 text-sm font-medium text-primary mb-6">
+                <Users className="h-4 w-4" />
+                Nuestro Equipo
+              </span>
+              <h1 className="font-heading text-4xl font-bold text-white sm:text-5xl lg:text-6xl mb-6 text-balance">
+                Equipo Docente
+              </h1>
+              <p className="text-lg text-white/80 leading-relaxed">
+                Un equipo de más de 50 profesionales apasionados por la educación, 
+                comprometidos con el desarrollo integral de cada uno de nuestros alumnos.
+              </p>
+            </div>
           </div>
-        </div>
-      </section>
+        </section>
 
-      <section className="section-space section-warm">
-        <div className="container-shell">
-          <SectionHeading
-            eyebrow="Lo que distingue al equipo"
-            title="Una forma de acompañar que se percibe desde el primer contacto"
-            description="Más allá de credenciales, el valor del equipo está en cómo enseña, cómo observa y cómo se relaciona con cada familia."
-          />
-          <div className="grid gap-5 md:grid-cols-2 xl:grid-cols-4">
-            {teamStrengths.map((item) => (
-              <FeatureCard
-                key={item.title}
-                title={item.title}
-                description={item.description}
-                icon={item.icon}
-              />
-            ))}
+        {/* Stats */}
+        <section className="py-12 bg-muted/50 border-b border-primary/10">
+          <div className="mx-auto max-w-7xl px-4">
+            <div className="grid grid-cols-2 lg:grid-cols-4 gap-8 text-center">
+              <div>
+                <div className="text-4xl font-bold text-primary mb-1">50+</div>
+                <div className="text-muted-foreground text-sm">Colaboradores</div>
+              </div>
+              <div>
+                <div className="text-4xl font-bold text-primary mb-1">95%</div>
+                <div className="text-muted-foreground text-sm">Con título universitario</div>
+              </div>
+              <div>
+                <div className="text-4xl font-bold text-primary mb-1">12</div>
+                <div className="text-muted-foreground text-sm">Años promedio de experiencia</div>
+              </div>
+              <div>
+                <div className="text-4xl font-bold text-primary mb-1">100%</div>
+                <div className="text-muted-foreground text-sm">Certificados en inglés</div>
+              </div>
+            </div>
           </div>
-        </div>
-      </section>
+        </section>
 
-      <section className="section-space">
-        <div className="container-shell">
-          <div className="card-elevated grid gap-6 p-8 lg:grid-cols-[0.95fr_1.05fr] lg:items-center">
-            <div>
-              <span className="eyebrow">Cultura docente</span>
-              <h2 className="mt-5 text-3xl font-semibold tracking-tight text-secondary sm:text-4xl">
-                Preparación, sensibilidad y consistencia en cada nivel
+        {/* Directivos */}
+        <section className="py-16 lg:py-24">
+          <div className="mx-auto max-w-7xl px-4">
+            <div className="text-center mb-16">
+              <h2 className="font-heading text-3xl font-bold text-foreground sm:text-4xl mb-4">
+                Equipo Directivo
               </h2>
+              <p className="text-muted-foreground max-w-2xl mx-auto">
+                Los líderes que guían nuestra institución con experiencia, visión y compromiso.
+              </p>
             </div>
-            <div className="space-y-4 text-sm leading-relaxed text-muted-foreground sm:text-base">
-              <p>
-                En Buckingham, el equipo docente comparte una misma intención institucional: acompañar con atención real, mantener expectativas claras y ayudar a que cada alumno avance con seguridad.
-              </p>
-              <p>
-                Esa consistencia entre personas, áreas y etapas es parte de lo que vuelve más confiable la experiencia para las familias.
-              </p>
+
+            <div className="grid md:grid-cols-3 gap-8">
+              {directivos.map((persona) => (
+                <Card key={persona.name} className="border-primary/20 overflow-hidden hover:shadow-lg transition-shadow">
+                  <div className="aspect-[4/3] relative bg-muted">
+                    <Image
+                      src={persona.image}
+                      alt={persona.name}
+                      fill
+                      className="object-cover"
+                    />
+                  </div>
+                  <CardContent className="p-6 text-center">
+                    <h3 className="font-heading text-xl font-semibold text-foreground mb-1">
+                      {persona.name}
+                    </h3>
+                    <p className="text-primary font-medium text-sm mb-3">
+                      {persona.role}
+                    </p>
+                    <p className="text-muted-foreground text-sm leading-relaxed">
+                      {persona.description}
+                    </p>
+                  </CardContent>
+                </Card>
+              ))}
             </div>
           </div>
-        </div>
-      </section>
+        </section>
 
-      <CTASection
-        title="Conoce al equipo que puede acompañar la siguiente etapa de tu familia"
-        description="Una visita al colegio permite entender mejor el tono humano y profesional con el que se vive Buckingham todos los días."
-        primaryCta={{ label: 'Agendar visita', href: '/contacto' }}
-        secondaryCta={{ label: 'Ver admisiones', href: '/admisiones' }}
-      />
-    </div>
+        {/* Departamentos */}
+        <section className="py-16 lg:py-24 bg-muted/50">
+          <div className="mx-auto max-w-7xl px-4">
+            <div className="text-center mb-16">
+              <h2 className="font-heading text-3xl font-bold text-foreground sm:text-4xl mb-4">
+                Nuestros Departamentos
+              </h2>
+              <p className="text-muted-foreground max-w-2xl mx-auto">
+                Organizados en equipos especializados para ofrecer la mejor atención educativa.
+              </p>
+            </div>
+
+            <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
+              {departamentos.map((dept) => (
+                <Card key={dept.title} className="border-primary/20 hover:shadow-md transition-shadow">
+                  <CardContent className="p-6">
+                    <div className="flex items-center justify-between mb-4">
+                      <h3 className="font-heading text-lg font-semibold text-foreground">
+                        {dept.title}
+                      </h3>
+                      <span className="text-xs font-medium bg-primary/10 text-primary px-2 py-1 rounded-full">
+                        {dept.count}
+                      </span>
+                    </div>
+                    <p className="text-muted-foreground text-sm leading-relaxed">
+                      {dept.description}
+                    </p>
+                  </CardContent>
+                </Card>
+              ))}
+            </div>
+          </div>
+        </section>
+
+        {/* Características del Equipo */}
+        <section className="py-16 lg:py-24">
+          <div className="mx-auto max-w-7xl px-4">
+            <div className="text-center mb-16">
+              <h2 className="font-heading text-3xl font-bold text-foreground sm:text-4xl mb-4">
+                Lo Que Nos Distingue
+              </h2>
+              <p className="text-muted-foreground max-w-2xl mx-auto">
+                Características que hacen de nuestro equipo docente uno de los mejores de la región.
+              </p>
+            </div>
+
+            <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
+              {caracteristicas.map((item) => (
+                <div key={item.title} className="text-center">
+                  <div className="flex h-16 w-16 items-center justify-center rounded-2xl bg-primary/10 mx-auto mb-4">
+                    <item.icon className="h-8 w-8 text-primary" />
+                  </div>
+                  <h3 className="font-semibold text-foreground mb-2">{item.title}</h3>
+                  <p className="text-muted-foreground text-sm leading-relaxed">
+                    {item.description}
+                  </p>
+                </div>
+              ))}
+            </div>
+          </div>
+        </section>
+
+        {/* Join Our Team */}
+        <section className="py-16 lg:py-24 bg-gradient-to-r from-primary/5 to-[rgba(127,87,26,0.05)]">
+          <div className="mx-auto max-w-7xl px-4">
+            <div className="max-w-3xl mx-auto text-center">
+              <h2 className="font-heading text-3xl font-bold text-foreground sm:text-4xl mb-4">
+                Únete a Nuestro Equipo
+              </h2>
+              <p className="text-muted-foreground mb-8">
+                Si eres un profesional apasionado por la educación y compartes nuestros valores, 
+                nos encantaría conocerte. Envianos tu CV y forma parte de la familia Buckingham.
+              </p>
+              <Button asChild size="lg" className="bg-[var(--brown)] text-white hover:bg-[var(--brown-dark)]">
+                <Link href="mailto:rh@institutobuckingham.edu.mx">Enviar CV</Link>
+              </Button>
+            </div>
+          </div>
+        </section>
+
+        {/* CTA Section */}
+        <section className="py-16 lg:py-24 bg-[var(--brown-dark)] text-white">
+          <div className="mx-auto max-w-7xl px-4 text-center">
+            <h2 className="font-heading text-3xl font-bold sm:text-4xl mb-4">
+              Conoce a Nuestro Equipo en Persona
+            </h2>
+            <p className="text-white/80 max-w-2xl mx-auto mb-8">
+              Agenda una visita a nuestras instalaciones y conoce a los maestros que acompañarán 
+              a tu hijo en su formación educativa.
+            </p>
+            <div className="flex flex-col sm:flex-row gap-4 justify-center">
+              <Button asChild size="lg" className="bg-primary text-primary-foreground hover:bg-primary/90">
+                <Link href="/admisiones/agenda-visita">Agendar Visita</Link>
+              </Button>
+              <Button asChild size="lg" variant="outline" className="border-white text-white hover:bg-white/10">
+                <Link href="/admisiones">Ver Proceso de Admisión</Link>
+              </Button>
+            </div>
+          </div>
+        </section>
+      </main>
   )
 }
