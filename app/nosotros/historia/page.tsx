@@ -1,224 +1,229 @@
-import { Metadata } from "next"
-import Image from "next/image"
-import Link from "next/link"
-import { Button } from "@/components/ui/button"
-import { Card, CardContent } from "@/components/ui/card"
-import { ChevronRight, Calendar, Award, Users, Building } from "lucide-react"
+﻿import type { Metadata } from 'next'
+import Image from 'next/image'
+import Link from 'next/link'
+import {
+  Award,
+  Building2,
+  CalendarDays,
+  ChevronRight,
+  GraduationCap,
+  ShieldCheck,
+  Users,
+} from 'lucide-react'
+import { CTASection } from '@/components/CTASection'
+import { PageHero } from '@/components/PageHero'
+import { SectionHeading } from '@/components/SectionHeading'
+import { images } from '@/lib/content/images'
 
 export const metadata: Metadata = {
-  title: "Nuestra Historia | Instituto Buckingham",
-  description: "Conoce la historia de Instituto Buckingham, más de 30 años formando generaciones en San Luis Potosí con educación bilingüe de calidad.",
+  title: 'Nuestra Historia | Instituto Buckingham',
+  description:
+    'Conoce la historia de Instituto Buckingham y su trayectoria de más de 30 años formando familias en San Luis Potosí.',
 }
 
 const timelineEvents = [
   {
-    year: "1993",
-    title: "Fundación",
-    description: "Instituto Buckingham abre sus puertas con la visión de ofrecer educación bilingüe de calidad en San Luis Potosí. Iniciamos con un pequeño grupo de alumnos y el compromiso de formar personas íntegras.",
-    icon: Building,
+    year: '1993',
+    title: 'Fundación',
+    description:
+      'Instituto Buckingham abre sus puertas en San Luis Potosí con una propuesta educativa bilingüe centrada en cercanía, formación integral y atención personalizada.',
+    icon: Building2,
   },
   {
-    year: "1998",
-    title: "Expansión Preescolar",
-    description: "Ampliamos nuestras instalaciones para dar servicio a más familias, incorporando nuevas aulas y espacios de recreación para los más pequeños.",
+    year: '1998',
+    title: 'Crecimiento de Preescolar',
+    description:
+      'La comunidad escolar crece y se fortalecen espacios, rutinas y experiencias para acompañar mejor a las familias en los primeros años.',
     icon: Users,
   },
   {
-    year: "2005",
-    title: "Certificación Cambridge",
-    description: "Nos convertimos en centro preparador oficial de Cambridge, garantizando la calidad de nuestra enseñanza del inglés con estándares internacionales.",
+    year: '2005',
+    title: 'Impulso al inglés',
+    description:
+      'Se consolida el enfoque bilingüe con metodologías y certificaciones que elevan el estándar académico del colegio.',
     icon: Award,
   },
   {
-    year: "2010",
-    title: "Nuevas Instalaciones",
-    description: "Inauguramos instalaciones completamente renovadas con tecnología educativa de vanguardia, laboratorios y áreas deportivas.",
-    icon: Building,
+    year: '2015',
+    title: 'Apertura de Maternal',
+    description:
+      'El proyecto se extiende para atender con sensibilidad y estructura a la primera infancia, desde una etapa más temprana.',
+    icon: ShieldCheck,
   },
   {
-    year: "2015",
-    title: "Programa Maternal",
-    description: "Lanzamos nuestro programa de Maternal para atender a niños desde 1 año, con metodologías de estimulación temprana y atención personalizada.",
+    year: '2023',
+    title: 'Más de 30 años de trayectoria',
+    description:
+      'Tres décadas después, Buckingham mantiene la misma promesa: excelencia académica, calidez humana y continuidad educativa por etapas.',
+    icon: GraduationCap,
+  },
+]
+
+const proofItems = [
+  {
+    title: 'Desde 1993',
+    description: 'Más de 30 años acompañando familias.',
+    icon: CalendarDays,
+  },
+  {
+    title: 'Proyecto bilingüe',
+    description: 'Una propuesta sólida con continuidad académica.',
+    icon: Award,
+  },
+  {
+    title: 'Comunidad cercana',
+    description: 'Relación escuela-familia construida con confianza.',
     icon: Users,
   },
   {
-    year: "2023",
-    title: "30 Años de Excelencia",
-    description: "Celebramos tres décadas formando generaciones de potosinos con valores, bilingüismo y excelencia académica. Miles de egresados nos respaldan.",
-    icon: Award,
+    title: 'Visión de futuro',
+    description: 'Formación integral para cada etapa del desarrollo.',
+    icon: GraduationCap,
   },
 ]
 
 export default function HistoriaPage() {
   return (
-      <main className="min-h-screen bg-background">
-        {/* Breadcrumb */}
-        <div className="border-b border-primary/20 bg-card">
-          <div className="mx-auto max-w-7xl px-4 py-3">
-            <nav className="flex items-center gap-2 text-sm text-muted-foreground">
-              <Link href="/" className="hover:text-primary transition-colors">Inicio</Link>
-              <ChevronRight className="h-4 w-4" />
-              <span>Nosotros</span>
-              <ChevronRight className="h-4 w-4" />
-              <span className="text-foreground font-medium">Historia</span>
-            </nav>
+    <div className="flex flex-col">
+      <div className="border-b border-border/70 bg-white/90">
+        <div className="container-shell py-3">
+          <nav className="flex items-center gap-2 text-sm text-muted-foreground">
+            <Link href="/" className="transition-colors hover:text-primary">
+              Inicio
+            </Link>
+            <ChevronRight className="h-4 w-4" />
+            <Link href="/nosotros" className="transition-colors hover:text-primary">
+              Nosotros
+            </Link>
+            <ChevronRight className="h-4 w-4" />
+            <span className="font-medium text-foreground">Historia</span>
+          </nav>
+        </div>
+      </div>
+
+      <PageHero
+        eyebrow="Desde 1993"
+        title="Una historia construida con cercanía, excelencia y confianza"
+        description="Buckingham ha acompañado a familias de San Luis Potosí durante más de tres décadas con una propuesta educativa bilingüe, cálida y académicamente sólida."
+        image={images.home.hero}
+        imageAlt="Comunidad de Instituto Buckingham"
+        primaryCta={{ label: 'Solicitar informes', href: '/admisiones' }}
+        secondaryCta={{ label: 'Agendar visita', href: '/contacto' }}
+        trustBullets={['Más de 30 años', 'Educación bilingüe', 'Continuidad por etapas']}
+        imageBadge={{
+          value: '1993',
+          label: 'Inicio de nuestra trayectoria',
+          detail: 'Una comunidad que ha crecido sin perder cercanía.',
+        }}
+      />
+
+      <section className="border-y border-border/70 bg-white/80 py-7">
+        <div className="container-shell">
+          <div className="grid gap-8 sm:grid-cols-2 xl:grid-cols-4">
+            {proofItems.map((item) => {
+              const Icon = item.icon
+
+              return (
+                <div key={item.title} className="flex flex-col items-center text-center">
+                  <div className="flex h-12 w-12 items-center justify-center rounded-full bg-primary/12 text-primary">
+                    <Icon className="h-5 w-5" />
+                  </div>
+                  <h3 className="mt-4 text-lg font-semibold tracking-tight text-secondary">{item.title}</h3>
+                  <p className="mt-1 text-sm leading-relaxed text-muted-foreground">{item.description}</p>
+                </div>
+              )
+            })}
           </div>
         </div>
+      </section>
 
-        {/* Hero Section */}
-        <section className="relative overflow-hidden bg-gradient-to-b from-secondary to-secondary/90 py-20 lg:py-28">
-          <div className="absolute inset-0 bg-[url('/images/pattern.png')] opacity-5" />
-          <div className="relative mx-auto max-w-7xl px-4">
-            <div className="mx-auto max-w-3xl text-center">
-              <span className="inline-flex items-center gap-2 rounded-full bg-primary/20 px-4 py-1.5 text-sm font-medium text-primary mb-6">
-                <Calendar className="h-4 w-4" />
-                Desde 1993
-              </span>
-              <h1 className="font-heading text-4xl font-bold text-white sm:text-5xl lg:text-6xl mb-6 text-balance">
-                Nuestra Historia
-              </h1>
-              <p className="text-lg text-white/80 leading-relaxed">
-                Más de 30 años dedicados a la formación integral de niños y niñas en San Luis Potosí, 
-                construyendo un legado de excelencia educativa y valores humanos.
-              </p>
-            </div>
-          </div>
-        </section>
-
-        {/* Intro Section */}
-        <section className="py-16 lg:py-24">
-          <div className="mx-auto max-w-7xl px-4">
-            <div className="grid lg:grid-cols-2 gap-12 items-center">
-              <div>
-                <h2 className="font-heading text-3xl font-bold text-foreground sm:text-4xl mb-6">
-                  Una Tradición de Excelencia Educativa
-                </h2>
-                <div className="space-y-4 text-muted-foreground leading-relaxed">
-                  <p>
-                    Instituto Buckingham nació en 1993 con un sueño: ofrecer a las familias de San Luis Potosí 
-                    una opción educativa que combinara la excelencia académica con la formación en valores, 
-                    todo en un ambiente bilingüe que preparara a los niños para un mundo globalizado.
-                  </p>
-                  <p>
-                    Fundado por educadores comprometidos con la infancia, nuestro colegio comenzó con un 
-                    pequeño grupo de alumnos y la convicción de que cada niño merece una educación 
-                    personalizada que respete su ritmo de aprendizaje y potencie sus talentos únicos.
-                  </p>
-                  <p>
-                    A lo largo de tres décadas, hemos mantenido nuestro compromiso original mientras 
-                    evolucionamos para incorporar las mejores prácticas educativas y tecnología de vanguardia, 
-                    sin perder nunca el trato cercano y familiar que nos caracteriza.
-                  </p>
-                </div>
+      <section className="section-space">
+        <div className="container-shell">
+          <div className="grid gap-10 lg:grid-cols-[0.96fr_1.04fr] lg:items-center">
+            <div>
+              <SectionHeading
+                eyebrow="Trayectoria"
+                title="Una tradición educativa que se ha fortalecido con el tiempo"
+                description="Nuestra historia no se mide solo en años, sino en relaciones duraderas, generaciones acompañadas y una forma de educar que mantiene calidez y estructura."
+                align="left"
+                className="mb-6"
+              />
+              <div className="space-y-4 text-base leading-relaxed text-muted-foreground">
+                <p>
+                  Instituto Buckingham nació con la convicción de que la calidad académica debía convivir con una atención humana y cercana. Desde el inicio, el proyecto buscó ofrecer una experiencia escolar ordenada, bilingüe y confiable para las familias.
+                </p>
+                <p>
+                  Con el paso de los años, la comunidad creció y también lo hicieron sus espacios, programas y metodologías. Sin embargo, la esencia se mantuvo: acompañar cada etapa del desarrollo con claridad, seguimiento y una relación sólida entre escuela y familia.
+                </p>
+                <p>
+                  Hoy, la historia de Buckingham sigue avanzando con la misma intención de origen: formar alumnos seguros, preparados y bien acompañados desde Maternal hasta Primaria.
+                </p>
               </div>
-              <div className="relative">
-                <div className="absolute -inset-4 bg-primary/10 rounded-3xl -rotate-3" />
+            </div>
+
+            <div className="card-elevated relative overflow-hidden border-primary/12 p-3">
+              <div className="relative aspect-[4/3.5] overflow-hidden rounded-[1.35rem]">
                 <Image
-                  src="/images/hero-students.jpg"
+                  src={images.home.hero}
                   alt="Historia de Instituto Buckingham"
-                  width={600}
-                  height={450}
-                  className="relative rounded-2xl shadow-xl w-full object-cover"
+                  fill
+                  className="object-cover"
+                  sizes="(max-width: 1024px) 100vw, 48vw"
                 />
+                <div className="absolute inset-x-0 bottom-0 h-28 bg-gradient-to-t from-secondary/35 via-secondary/5 to-transparent" />
+              </div>
+              <div className="absolute bottom-6 left-6 right-6 hidden rounded-[1.2rem] border border-primary/15 bg-white/94 p-4 shadow-[0_20px_40px_-28px_rgba(12,29,55,0.28)] backdrop-blur md:block">
+                <p className="text-xs font-semibold uppercase tracking-[0.18em] text-secondary">Legado Buckingham</p>
+                <p className="mt-2 text-sm leading-relaxed text-muted-foreground">
+                  Más de tres décadas formando una comunidad basada en confianza, bilingüismo y continuidad educativa.
+                </p>
               </div>
             </div>
           </div>
-        </section>
+        </div>
+      </section>
 
-        {/* Timeline Section */}
-        <section className="py-16 lg:py-24 bg-muted/50">
-          <div className="mx-auto max-w-7xl px-4">
-            <div className="text-center mb-16">
-              <h2 className="font-heading text-3xl font-bold text-foreground sm:text-4xl mb-4">
-                Nuestro Recorrido
-              </h2>
-              <p className="text-muted-foreground max-w-2xl mx-auto">
-                Cada año ha sido un paso más en nuestro compromiso con la educación de calidad.
-              </p>
-            </div>
+      <section className="section-space section-warm">
+        <div className="container-shell">
+          <SectionHeading
+            eyebrow="Línea de tiempo"
+            title="Momentos que explican cómo ha crecido la institución"
+            description="Cada etapa de la historia refuerza la identidad actual del colegio: una propuesta estable, cercana y pensada para el largo plazo."
+          />
+          <div className="grid gap-5 md:grid-cols-2 xl:grid-cols-3">
+            {timelineEvents.map((event) => {
+              const Icon = event.icon
 
-            <div className="relative">
-              {/* Timeline Line */}
-              <div className="absolute left-8 lg:left-1/2 top-0 bottom-0 w-0.5 bg-primary/30 lg:-translate-x-px" />
-
-              <div className="space-y-12">
-                {timelineEvents.map((event, index) => (
-                  <div key={event.year} className={`relative flex items-start gap-8 ${index % 2 === 0 ? 'lg:flex-row' : 'lg:flex-row-reverse'}`}>
-                    {/* Timeline Point */}
-                    <div className="absolute left-8 lg:left-1/2 w-4 h-4 rounded-full bg-primary border-4 border-background -translate-x-1/2 mt-6 z-10" />
-                    
-                    {/* Content */}
-                    <div className={`ml-20 lg:ml-0 lg:w-[calc(50%-2rem)] ${index % 2 === 0 ? 'lg:pr-8 lg:text-right' : 'lg:pl-8'}`}>
-                      <Card className="border-primary/20 hover:shadow-lg transition-shadow">
-                        <CardContent className="p-6">
-                          <div className={`flex items-center gap-3 mb-3 ${index % 2 === 0 ? 'lg:justify-end' : ''}`}>
-                            <div className="flex h-10 w-10 items-center justify-center rounded-full bg-primary/10">
-                              <event.icon className="h-5 w-5 text-primary" />
-                            </div>
-                            <span className="text-2xl font-bold text-primary">{event.year}</span>
-                          </div>
-                          <h3 className="font-heading text-xl font-semibold text-foreground mb-2">
-                            {event.title}
-                          </h3>
-                          <p className="text-muted-foreground text-sm leading-relaxed">
-                            {event.description}
-                          </p>
-                        </CardContent>
-                      </Card>
+              return (
+                <article
+                  key={event.year}
+                  className="rounded-[1.65rem] border border-primary/18 bg-white p-6 shadow-[0_18px_38px_-30px_rgba(12,29,55,0.18)]"
+                >
+                  <div className="flex items-center gap-3">
+                    <div className="flex h-11 w-11 items-center justify-center rounded-2xl bg-primary/12 text-primary">
+                      <Icon className="h-5 w-5" />
                     </div>
-
-                    {/* Spacer for alternating layout */}
-                    <div className="hidden lg:block lg:w-[calc(50%-2rem)]" />
+                    <div>
+                      <p className="text-sm font-semibold uppercase tracking-[0.18em] text-primary">
+                        {event.year}
+                      </p>
+                      <h3 className="text-lg font-semibold text-secondary">{event.title}</h3>
+                    </div>
                   </div>
-                ))}
-              </div>
-            </div>
+                  <p className="mt-4 text-sm leading-relaxed text-muted-foreground">{event.description}</p>
+                </article>
+              )
+            })}
           </div>
-        </section>
+        </div>
+      </section>
 
-        {/* Stats Section */}
-        <section className="py-16 lg:py-24 bg-secondary text-white">
-          <div className="mx-auto max-w-7xl px-4">
-            <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-8 text-center">
-              <div>
-                <div className="text-5xl font-bold text-primary mb-2">30+</div>
-                <div className="text-white/80">Años de experiencia</div>
-              </div>
-              <div>
-                <div className="text-5xl font-bold text-primary mb-2">2,000+</div>
-                <div className="text-white/80">Egresados</div>
-              </div>
-              <div>
-                <div className="text-5xl font-bold text-primary mb-2">50+</div>
-                <div className="text-white/80">Docentes capacitados</div>
-              </div>
-              <div>
-                <div className="text-5xl font-bold text-primary mb-2">100%</div>
-                <div className="text-white/80">Compromiso</div>
-              </div>
-            </div>
-          </div>
-        </section>
-
-        {/* CTA Section */}
-        <section className="py-16 lg:py-24">
-          <div className="mx-auto max-w-7xl px-4 text-center">
-            <h2 className="font-heading text-3xl font-bold text-foreground sm:text-4xl mb-4">
-              Sé Parte de Nuestra Historia
-            </h2>
-            <p className="text-muted-foreground max-w-2xl mx-auto mb-8">
-              Únete a la familia Buckingham y escribe el próximo capítulo junto a nosotros.
-            </p>
-            <div className="flex flex-col sm:flex-row gap-4 justify-center">
-              <Button asChild size="lg" className="bg-primary text-primary-foreground hover:bg-primary/90">
-                <Link href="/admisiones">Iniciar Proceso de Admisión</Link>
-              </Button>
-              <Button asChild size="lg" variant="outline" className="border-primary text-primary hover:bg-primary/10">
-                <Link href="/admisiones/agenda-visita">Agendar Visita</Link>
-              </Button>
-            </div>
-          </div>
-        </section>
-      </main>
+      <CTASection
+        title="Conoce de cerca la comunidad que ha dado forma a esta historia"
+        description="La mejor manera de entender Buckingham es vivir su ambiente, recorrer sus espacios y conocer cómo se acompaña a cada familia desde el primer contacto."
+        primaryCta={{ label: 'Agendar visita', href: '/contacto' }}
+        secondaryCta={{ label: 'Ver admisiones', href: '/admisiones' }}
+      />
+    </div>
   )
 }
