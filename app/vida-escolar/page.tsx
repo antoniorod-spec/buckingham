@@ -43,7 +43,7 @@ export default function VidaEscolarPage() {
         </div>
       </section>
 
-      <section id="galeria" className="bg-[#F6F0E4] py-16 md:py-24">
+      <section id="galeria" className="scroll-mt-36 bg-[#F6F0E4] py-16 md:py-24">
         <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
           <SectionHeading
             title="Galería"

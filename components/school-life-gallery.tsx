@@ -128,7 +128,7 @@ export function SchoolLifeGallery() {
         {/* Link to full gallery */}
         <div className="mt-8 text-center">
           <Button asChild variant="outline" className="gap-2 border-primary text-secondary hover:bg-primary/10">
-            <Link href="/vida-escolar/galeria">
+            <Link href="/vida-escolar#galeria">
               Ver galería completa
               <ArrowRight className="h-4 w-4" />
             </Link>

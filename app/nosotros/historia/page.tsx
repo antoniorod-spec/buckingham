@@ -216,7 +216,7 @@ export default function HistoriaPage() {
                 <Link href="/admisiones">Iniciar Proceso de Admisión</Link>
               </Button>
               <Button asChild size="lg" variant="outline" className="border-primary text-primary hover:bg-primary/10">
-                <Link href="/admisiones/agenda-visita">Agendar Visita</Link>
+                <Link href="/contacto">Agendar Visita</Link>
               </Button>
             </div>
           </div>

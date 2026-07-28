@@ -35,7 +35,7 @@ export function HeroSection() {
 
             <div className="mt-8 flex flex-col gap-4 sm:flex-row">
               <Button asChild size="lg" className="gap-2 bg-secondary text-background hover:bg-secondary/90">
-                <Link href="/admisiones/agenda-visita">
+                <Link href="/contacto">
                   <Calendar className="h-4 w-4" />
                   Agendar visita
                 </Link>

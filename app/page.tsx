@@ -233,8 +233,8 @@ export default function HomePage() {
               className="mb-0"
             />
             <Button asChild variant="outline" className="hidden sm:inline-flex">
-              <Link href="/vida-escolar">
-                Ver más
+              <Link href="/vida-escolar#galeria">
+                Ver toda la galería
                 <ArrowRight className="h-4 w-4" />
               </Link>
             </Button>
