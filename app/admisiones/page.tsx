@@ -10,12 +10,15 @@ import { SectionHeading } from '@/components/SectionHeading'
 import { StatCard } from '@/components/StatCard'
 import { admissionsSteps, educationalLevels, homeFaq } from '@/lib/content'
 import { images } from '@/lib/content/images'
+import { pageMetadata, breadcrumbSchema, faqSchema } from '@/lib/seo'
+import { JsonLd } from '@/components/JsonLd'
 
-export const metadata: Metadata = {
-  title: 'Admisiones',
+export const metadata: Metadata = pageMetadata({
+  title: 'Admisiones 2026 - 2027',
   description:
-    'Conoce el proceso de admisión de Instituto Buckingham y agenda una visita para explorar Maternal, Preescolar o Primaria.',
-}
+    'Proceso de admisión en 4 pasos para Maternal, Preescolar y Primaria en San Luis Potosí. Requisitos, documentos y cómo agendar tu visita al colegio.',
+  path: '/admisiones',
+})
 
 const admissionsHighlights = [
   {
@@ -48,10 +51,11 @@ const admissionsHighlights = [
 export default function AdmisionesPage() {
   return (
     <div className="flex flex-col">
+      <JsonLd data={[breadcrumbSchema([{ name: 'Inicio', path: '/' }, { name: 'Admisiones', path: '/admisiones' }]), faqSchema(homeFaq)]} />
       <PageHero
         eyebrow="Admisiones Instituto Buckingham"
         title="Un proceso cálido, transparente y bien acompañado desde el primer contacto"
-        description="La página de admisiones organiza el recorrido ideal para las familias: entender el proyecto, conocer los niveles, revisar requisitos y dejar una solicitud sin perder claridad ni confianza."
+        description="Te explicamos el proceso completo: qué documentos necesitas, cómo agendar tu visita al campus y cuánto tarda cada paso. Sin letra pequeña."
         image={images.admisiones.hero}
         imageAlt="Admisiones Instituto Buckingham"
         primaryCta={{ label: 'Solicitar informes', href: '#formulario' }}
@@ -83,8 +87,8 @@ export default function AdmisionesPage() {
         <div className="container-shell">
           <SectionHeading
             eyebrow="Ruta de admisión"
-            title="La información aparece en el orden en que la familia la necesita"
-            description="Primero confianza, luego proceso, después niveles y finalmente conversión. Esa secuencia hace que la página se sienta clara y profesional."
+            title="Cuatro pasos, de la primera llamada al primer día de clases"
+            description="Así es el proceso completo. En cada etapa sabrás con quién hablas y qué sigue después."
           />
           <div className="grid gap-4 lg:grid-cols-4">
             {admissionsSteps.map((step) => (
@@ -105,8 +109,8 @@ export default function AdmisionesPage() {
         <div className="container-shell">
           <SectionHeading
             eyebrow="Oferta educativa"
-            title="La navegación hacia los niveles permanece visible dentro del proceso"
-            description="En vez de sacar al usuario del flujo, la página integra los tres niveles para que la familia pueda profundizar sin perder el contexto de admisión."
+            title="¿Aún no sabes qué nivel le toca a tu hijo?"
+            description="Revisa las edades y el enfoque de cada etapa. Si tienes dudas, en la visita te ayudamos a ubicarlo."
           />
           <div className="grid gap-6 lg:grid-cols-3">
             {educationalLevels.map((level) => (
@@ -129,15 +133,15 @@ export default function AdmisionesPage() {
             <div>
               <SectionHeading
                 eyebrow="Requisitos"
-                title="Documentación explicada con claridad y sin fricción innecesaria"
-                description="La sección resume lo esencial para disminuir incertidumbre y mantener el foco en el siguiente paso."
+                title="Qué documentos necesitas tener a la mano"
+                description="Esto es lo básico para cualquier nivel. Según la etapa podemos pedirte algún documento adicional, y te lo decimos desde el primer contacto."
                 align="left"
               />
               <div className="grid gap-3 sm:grid-cols-2">
-                <StatCard value="Acta" label="documentos del alumno" detail="Sección pensada para listar lo indispensable y ampliar según nivel." />
-                <StatCard value="CURP" label="datos esenciales" detail="La interfaz puede conectarse después con un checklist descargable o CRM." />
-                <StatCard value="Visita" label="recorrido sugerido" detail="La página refuerza que conocer el campus acelera la decisión." />
-                <StatCard value="Tiempo" label="proceso acompañado" detail="La narrativa baja fricción y anticipa próximos pasos." />
+                <StatCard value="Acta" label="de nacimiento" detail="Copia del acta de nacimiento del alumno." />
+                <StatCard value="CURP" label="del alumno" detail="Y la identificación oficial de la madre, el padre o el tutor." />
+                <StatCard value="Boletas" label="del ciclo anterior" detail="Solo si tu hijo viene de otro colegio, para ubicarlo en el grado que le corresponde." />
+                <StatCard value="Visita" label="al campus" detail="No es un requisito, pero casi todas las familias deciden después de recorrer el colegio." />
               </div>
             </div>
             <div className="card-elevated relative overflow-hidden border-primary/12 p-6 sm:p-8">
@@ -168,8 +172,8 @@ export default function AdmisionesPage() {
             <div>
               <SectionHeading
                 eyebrow="Conversión"
-                title="Formulario, contacto y contexto en una sola vista"
-                description="La página cierra con una zona clara para que la familia tenga confianza antes de dejar sus datos."
+                title="Solicita informes o agenda tu visita"
+                description="Escríbenos por el medio que prefieras. Te respondemos con la información del nivel que te interesa y la disponibilidad de lugares."
                 align="left"
               />
               <div className="space-y-4">
@@ -190,8 +194,8 @@ export default function AdmisionesPage() {
         <div className="container-shell">
           <SectionHeading
             eyebrow="FAQ"
-            title="Las preguntas frecuentes sostienen la decisión sin cambiar de página"
-            description="El acordeón refuerza orden, confianza y ahorro de tiempo para el equipo comercial y para las familias."
+            title="Dudas sobre el proceso de admisión"
+            description="Fechas, lugares disponibles, cambios desde otro colegio y todo lo que suelen preguntarnos antes de inscribir."
           />
           <div className="mx-auto max-w-3xl">
             <FAQAccordion items={homeFaq} />
@@ -200,8 +204,8 @@ export default function AdmisionesPage() {
       </section>
 
       <CTASection
-        title="Cuando la familia está lista, el siguiente paso está siempre visible"
-        description="La página de admisiones termina con un cierre claro y coherente con todo el sistema visual del sitio."
+        title="Admisiones abiertas para el ciclo 2026 - 2027"
+        description="Los lugares por grupo son limitados porque trabajamos con grupos reducidos. Si te interesa, conviene empezar el proceso con tiempo."
         primaryCta={{ label: 'Contactar ahora', href: '/contacto' }}
         secondaryCta={{ label: 'Explorar niveles', href: '/oferta-educativa' }}
       />

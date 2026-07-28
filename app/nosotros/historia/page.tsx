@@ -4,11 +4,13 @@ import Link from "next/link"
 import { Button } from "@/components/ui/button"
 import { Card, CardContent } from "@/components/ui/card"
 import { ChevronRight, Calendar, Award, Users, Building } from "lucide-react"
+import { pageMetadata } from '@/lib/seo'
 
-export const metadata: Metadata = {
-  title: "Nuestra Historia | Instituto Buckingham",
-  description: "Conoce la historia de Instituto Buckingham, más de 30 años formando generaciones en San Luis Potosí con educación bilingüe de calidad.",
-}
+export const metadata: Metadata = pageMetadata({
+  title: "Nuestra historia",
+  description: "Instituto Buckingham abrió en 1993 en San Luis Potosí. Más de 30 años de educación bilingüe y personalizada para familias potosinas.",
+  path: '/nosotros/historia',
+})
 
 const timelineEvents = [
   {

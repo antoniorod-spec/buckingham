@@ -8,11 +8,13 @@ import { TimelineItem } from '@/components/TimelineItem'
 import { CTASection } from '@/components/CTASection'
 import { timelineEvents } from '@/lib/content'
 import { images } from '@/lib/content/images'
+import { pageMetadata } from '@/lib/seo'
 
-export const metadata: Metadata = {
-  title: 'Nosotros | Instituto Buckingham',
+export const metadata: Metadata = pageMetadata({
+  title: 'Nosotros',
   description: 'Conoce la historia, misión, visión y valores del Instituto Buckingham. Más de 30 años formando generaciones en San Luis Potosí.',
-}
+  path: '/nosotros',
+})
 
 export default function NosotrosPage() {
   return (

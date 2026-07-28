@@ -10,27 +10,31 @@ import { SectionHeading } from '@/components/SectionHeading'
 import { StatCard } from '@/components/StatCard'
 import { homeFaq } from '@/lib/content'
 import { images } from '@/lib/content/images'
+import { pageMetadata, breadcrumbSchema, faqSchema } from '@/lib/seo'
+import { JsonLd } from '@/components/JsonLd'
 
-export const metadata: Metadata = {
-  title: 'Preescolar',
+export const metadata: Metadata = pageMetadata({
+  title: 'Preescolar bilingüe en San Luis Potosí',
   description:
-    'Explora la propuesta de Preescolar de Instituto Buckingham: juego intencional, bilingüismo natural y desarrollo integral.',
-}
+    'Preescolar bilingüe para niños de 3 a 6 años en San Luis Potosí: juego con intención, inglés diario y preparación real para Primaria. Agenda tu visita.',
+  path: '/preescolar',
+  image: '/images/preescolar.jpg',
+})
 
 const preescolarPillars = [
   {
     title: 'Juego con intención',
-    description: 'La interfaz comunica que jugar aquí también significa aprender, explorar y construir pensamiento.',
+    description: 'Cada actividad de juego persigue un objetivo: resolver problemas, ordenar ideas, trabajar en equipo o ganar autonomía.',
     icon: 'sparkles' as const,
   },
   {
     title: 'Lenguaje y expresión',
-    description: 'Secciones pensadas para destacar comunicación, creatividad y curiosidad en un tono elegante.',
+    description: 'Tu hijo aprende a contar lo que piensa y lo que siente, a escuchar a los demás y a hablar frente al grupo sin miedo.',
     icon: 'book' as const,
   },
   {
     title: 'Vida socioemocional',
-    description: 'El contenido refuerza autoestima, convivencia y acompañamiento, sin recurrir a un estilo visual infantilizado.',
+    description: 'Trabajamos la convivencia, la frustración y la autoestima con el mismo cuidado que las letras y los números.',
     icon: 'heart' as const,
   },
   {
@@ -40,12 +44,12 @@ const preescolarPillars = [
   },
   {
     title: 'Creatividad',
-    description: 'La propuesta visual da espacio a arte, música y proyectos sin verse saturada o genérica.',
+    description: 'Arte, música y proyectos con las manos forman parte de la semana, no son un extra los viernes.',
     icon: 'palette' as const,
   },
   {
     title: 'Preparación para Primaria',
-    description: 'La narrativa explica continuidad y estructura, ayudando a la familia a visualizar la siguiente etapa.',
+    description: 'Al terminar Preescolar tu hijo llega a Primaria con lectoescritura iniciada, hábitos de trabajo y el mismo colegio de siempre.',
     icon: 'graduation' as const,
   },
 ]
@@ -90,6 +94,7 @@ const preescolarFaq = [
 export default function PreescolarPage() {
   return (
     <div className="flex flex-col">
+      <JsonLd data={[breadcrumbSchema([{ name: 'Inicio', path: '/' }, { name: 'Preescolar', path: '/preescolar' }]), faqSchema(preescolarFaq)]} />
       <PageHero
         eyebrow="Preescolar · 3 a 6 años"
         title="Descubrir, expresarse y aprender con alegría, estructura y confianza"
@@ -127,7 +132,7 @@ export default function PreescolarPage() {
           <SectionHeading
             eyebrow="Pilares"
             title="Movimiento, curiosidad y claridad pedagógica en la misma experiencia"
-            description="Los bloques muestran habilidades, beneficios y metodología con una jerarquía clara y cálida."
+            description="Entre los 3 y los 6 años se forman las bases de todo lo que viene después. Esto es lo que trabajamos en cada una de ellas."
           />
           <div className="grid gap-5 md:grid-cols-2 xl:grid-cols-3">
             {preescolarPillars.map((pillar) => (
@@ -169,15 +174,15 @@ export default function PreescolarPage() {
             <div>
               <SectionHeading
                 eyebrow="Metodología"
-                title="Juego, estructura y crecimiento en una narrativa clara"
-                description="La composición mantiene el equilibrio entre una experiencia alegre y una propuesta seria y bien pensada."
+                title="Cómo aprenden los niños en Preescolar"
+                description="Un colegio alegre y un colegio serio no están reñidos. Así combinamos las dos cosas en el día a día."
                 align="left"
               />
               <div className="grid gap-3 sm:grid-cols-2">
-                <StatCard value="Explorar" label="para aprender" detail="La curiosidad guía la experiencia, no el ruido visual." />
-                <StatCard value="Rutina" label="que da seguridad" detail="La estructura se comunica con bloques claros y ritmo consistente." />
-                <StatCard value="Expresar" label="emociones e ideas" detail="La narrativa deja espacio para socioemocional y creatividad." />
-                <StatCard value="Construir" label="hábitos y lenguaje" detail="La transición a Primaria se vuelve visible desde aquí." />
+                <StatCard value="Explorar" label="para aprender" detail="Preguntar, probar y equivocarse es parte del método, no una interrupción de la clase." />
+                <StatCard value="Rutina" label="que da seguridad" detail="Los niños saben qué toca en cada momento del día, y eso les da tranquilidad para concentrarse." />
+                <StatCard value="Expresar" label="emociones e ideas" detail="Aprenden a nombrar lo que sienten y a resolver conflictos hablando." />
+                <StatCard value="Construir" label="hábitos y lenguaje" detail="Atención, orden y lectoescritura inicial para llegar a Primaria con base firme." />
               </div>
             </div>
           </div>
@@ -188,8 +193,8 @@ export default function PreescolarPage() {
         <div className="container-shell">
           <SectionHeading
             eyebrow="Galería"
-            title="Proyectos, juego y vida escolar con una grilla limpia y consistente"
-            description="La cuadrícula reutilizable mantiene consistencia con el home y con el resto de niveles."
+            title="Los espacios de Preescolar"
+            description="Áreas de juego, patios y salones donde tu hijo pasará la mayor parte de la mañana."
           />
           <div className="grid gap-4 md:grid-cols-3">
             {images.preescolar.gallery.map((src, index) => (
@@ -204,7 +209,7 @@ export default function PreescolarPage() {
           <SectionHeading
             eyebrow="FAQ"
             title="Preguntas frecuentes resueltas con claridad y cercanía"
-            description="La página sostiene la conversación de la familia sin sacarla del flujo principal."
+            description="Grupos, horarios, inglés y preparación para Primaria: lo que más nos preguntan las familias de Preescolar."
           />
           <div className="mx-auto max-w-3xl">
             <FAQAccordion items={preescolarFaq} />
@@ -213,8 +218,8 @@ export default function PreescolarPage() {
       </section>
 
       <CTASection
-        title="Preescolar necesita verse alegre y sofisticado al mismo tiempo"
-        description="La estructura actual ya permite sostener ese equilibrio con componentes reutilizables y una identidad visual consistente."
+        title="Conoce Preescolar por dentro"
+        description="Agenda una visita en horario de clase y verás cómo trabajan los grupos, cómo se usa el inglés y cómo es el trato con cada niño."
         primaryCta={{ label: 'Iniciar admisión', href: '/admisiones' }}
         secondaryCta={{ label: 'Explorar Primaria', href: '/primaria' }}
       />

@@ -4,11 +4,14 @@ import Link from "next/link"
 import { Button } from "@/components/ui/button"
 import { Card, CardContent } from "@/components/ui/card"
 import { ChevronRight, Users, GraduationCap, Award, Heart } from "lucide-react"
+import { pageMetadata } from '@/lib/seo'
 
-export const metadata: Metadata = {
-  title: "Equipo Docente | Instituto Buckingham",
-  description: "Conoce al equipo de profesionales dedicados a la educación de tus hijos en Instituto Buckingham. Docentes certificados y comprometidos.",
-}
+export const metadata: Metadata = pageMetadata({
+  title: "Equipo docente",
+  description: "Más de 50 profesionales dedicados a la educación de tus hijos en Instituto Buckingham. Docentes certificados, con formación continua y trato cercano.",
+  path: '/nosotros/equipo',
+  image: '/images/equipo-buckingham.jpg',
+})
 
 const directivos = [
   {

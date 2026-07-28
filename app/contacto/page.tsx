@@ -7,11 +7,13 @@ import { FAQAccordion } from '@/components/FAQAccordion'
 import { siteConfig } from '@/lib/content'
 import { homeFaq } from '@/lib/content'
 import { images } from '@/lib/content/images'
+import { pageMetadata } from '@/lib/seo'
 
-export const metadata: Metadata = {
-  title: 'Contacto | Instituto Buckingham',
-  description: 'Contáctanos para solicitar información o agendar una visita. Estamos en San Luis Potosí para atenderte.',
-}
+export const metadata: Metadata = pageMetadata({
+  title: 'Contacto y ubicación',
+  description: 'Estamos en Maestros Ilustres 444, Lomas 1a Sección, San Luis Potosí. Llámanos, escríbenos por WhatsApp o agenda una visita al colegio.',
+  path: '/contacto',
+})
 
 export default function ContactoPage() {
   return (

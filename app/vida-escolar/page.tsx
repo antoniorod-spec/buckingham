@@ -6,11 +6,14 @@ import { CTASection } from '@/components/CTASection'
 import { GalleryItem } from '@/components/GalleryItem'
 import { testimonials } from '@/lib/content'
 import { images } from '@/lib/content/images'
+import { pageMetadata } from '@/lib/seo'
 
-export const metadata: Metadata = {
-  title: 'Vida Escolar | Instituto Buckingham',
-  description: 'Conoce el día a día en Instituto Buckingham. Eventos, actividades y momentos que construyen la experiencia de ser parte de nuestra comunidad.',
-}
+export const metadata: Metadata = pageMetadata({
+  title: 'Vida escolar e instalaciones',
+  description: 'Así es el día a día en Instituto Buckingham: aulas, patios, clase de música, educación física y recreo. Conoce las instalaciones del colegio.',
+  path: '/vida-escolar',
+  image: '/images/gallery-1.jpg',
+})
 
 export default function VidaEscolarPage() {
   return (

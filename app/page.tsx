@@ -26,6 +26,8 @@ import {
   whyBuckingham,
 } from '@/lib/content'
 import { images } from '@/lib/content/images'
+import { JsonLd } from '@/components/JsonLd'
+import { faqSchema } from '@/lib/seo'
 
 export const metadata: Metadata = {
   title: 'Inicio',
@@ -64,6 +66,7 @@ const trustProofItems = [
 export default function HomePage() {
   return (
     <div className="flex flex-col">
+      <JsonLd data={faqSchema(homeFaq)} />
       <PageHero
         eyebrow="Educación bilingüe desde 1993"
         title="Calidez, excelencia y atención personalizada en cada etapa"
@@ -99,7 +102,7 @@ export default function HomePage() {
       <section className="section-space">
         <div className="container-shell">
           <SectionHeading
-            eyebrow="Estructura del sitio"
+            eyebrow="Oferta educativa"
             title="Una propuesta clara para cada momento del crecimiento"
             description="Cada nivel tiene identidad propia, pero todos comparten la misma promesa: una formación cercana, bilingüe y bien estructurada para acompañar a cada familia con confianza."
           />
@@ -185,7 +188,7 @@ export default function HomePage() {
           <SectionHeading
             eyebrow="Admisiones"
             title="Un proceso claro, cálido y bien guiado desde el primer contacto"
-            description="La experiencia digital también acompaña el proceso de admisión: pasos simples, información precisa y una llamada a la acción evidente para que las familias avancen con seguridad."
+            description="Cuatro pasos, sin trámites confusos ni respuestas a medias. Te decimos qué necesitas, cuándo y con quién hablar en cada momento."
           />
           <div className="grid gap-10 lg:grid-cols-[0.95fr_1.05fr]">
             <div className="grid gap-4">
@@ -208,7 +211,7 @@ export default function HomePage() {
                   Cuéntanos qué etapa buscas para tu familia
                 </h3>
                 <p className="mt-3 text-sm leading-relaxed text-muted-foreground sm:text-base">
-                  El formulario está listo para captar interés de manera clara, con el mismo tono premium y cercano del resto del sitio.
+                  Déjanos tus datos y te contactamos con la información del nivel que te interesa, disponibilidad de lugares y fechas para visitar el colegio.
                 </p>
               </div>
               <div className="mt-8">
@@ -224,8 +227,8 @@ export default function HomePage() {
           <div className="flex items-end justify-between gap-6">
             <SectionHeading
               eyebrow="Vida escolar"
-              title="Imágenes reales y placeholders listos para producción"
-              description="La estructura contempla galerías elegantes para mostrar campus, experiencias, eventos y el carácter cotidiano de la comunidad Buckingham."
+              title="Así se ve un día cualquiera en Buckingham"
+              description="Nuestro castillo, los patios, las aulas y el recreo. Las mismas instalaciones que vas a recorrer cuando vengas a visitarnos."
               align="left"
               className="mb-0"
             />
@@ -248,8 +251,8 @@ export default function HomePage() {
         <div className="container-shell">
           <SectionHeading
             eyebrow="Confianza"
-            title="La voz de las familias sigue siendo el argumento más fuerte"
-            description="Los testimonios ayudan a reforzar la percepción de cercanía, orden y trato humano sin perder el tono premium del proyecto."
+            title="Lo que dicen las familias que ya nos eligieron"
+            description="La mayoría de nuestras familias llegó por recomendación de otra familia. Esto es lo que cuentan quienes ya viven Buckingham todos los días."
           />
           <div className="grid gap-5 lg:grid-cols-3">
             {testimonials.map((testimonial) => (
@@ -268,8 +271,8 @@ export default function HomePage() {
         <div className="container-shell">
           <SectionHeading
             eyebrow="Trayectoria"
-            title="Una historia que respalda la propuesta actual del sitio"
-            description="La narrativa institucional se puede desplegar con una línea de tiempo sobria y legible que sostiene el posicionamiento de confianza."
+            title="Más de 30 años educando en San Luis Potosí"
+            description="Abrimos en 1993 y desde entonces hemos acompañado a generaciones de familias potosinas. Este es el camino que nos trajo hasta aquí."
           />
           <div className="grid gap-4 lg:grid-cols-2">
             {timelineEvents.map((event, index) => (
@@ -290,8 +293,8 @@ export default function HomePage() {
         <div className="container-shell">
           <SectionHeading
             eyebrow="Preguntas frecuentes"
-            title="Información esencial accesible desde la página principal"
-            description="La arquitectura contempla resolver dudas comunes sin sacar a la familia del flujo principal de decisión."
+            title="Las dudas que más nos preguntan las familias"
+            description="Edades de ingreso, cómo funciona el programa bilingüe, comunicación con casa y cómo agendar una visita."
           />
           <div className="mx-auto max-w-3xl">
             <FAQAccordion items={homeFaq} />
@@ -301,8 +304,8 @@ export default function HomePage() {
 
       <CTASection
         variant="dark"
-        title="¿Listo para convertir esta estructura en el nuevo sitio de Buckingham?"
-        description={`La base ya contempla layout global, navegación, páginas clave, componentes reutilizables y una identidad visual cálida y premium alineada con ${siteConfig.shortName}.`}
+        title="Ven a conocer el colegio antes de decidir"
+        description={`La mejor forma de saber si ${siteConfig.shortName} es para tu familia es recorrer el campus, ver a los niños en clase y platicar con el equipo. Agenda tu visita cuando te acomode.`}
         primaryCta={{ label: 'Iniciar admisión', href: '/admisiones' }}
         secondaryCta={{ label: 'Hablar con el colegio', href: `https://wa.me/${siteConfig.whatsapp}` }}
       />

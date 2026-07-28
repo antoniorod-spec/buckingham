@@ -3,11 +3,13 @@ import Link from "next/link"
 import { Button } from "@/components/ui/button"
 import { Card, CardContent } from "@/components/ui/card"
 import { ChevronRight, Target, Eye, Compass, Heart, BookOpen, Globe } from "lucide-react"
+import { pageMetadata } from '@/lib/seo'
 
-export const metadata: Metadata = {
-  title: "Misión y Visión | Instituto Buckingham",
-  description: "Conoce la misión, visión y filosofía educativa de Instituto Buckingham. Formamos personas íntegras con excelencia académica y valores humanos.",
-}
+export const metadata: Metadata = pageMetadata({
+  title: "Misión y visión",
+  description: "La misión, visión y filosofía educativa de Instituto Buckingham. Formamos personas íntegras con excelencia académica y valores humanos.",
+  path: '/nosotros/mision-vision',
+})
 
 export default function MisionVisionPage() {
   return (

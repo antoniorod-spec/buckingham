@@ -5,12 +5,23 @@ export const siteConfig = {
   shortName: 'Buckingham',
   tagline: 'Educación bilingüe con calidez, estructura y visión global',
   location: 'San Luis Potosí, México',
-  phone: '+52 444 123 4567',
-  whatsapp: '524441234567',
+  phone: '+52 444 811 2404',
+  phoneDisplay: '444 811 2404',
+  whatsapp: '524448112404',
   email: 'admisiones@institutobuckingham.edu.mx',
-  address: 'Lomas 1a Sección, San Luis Potosí, S.L.P.',
+  address: 'Maestros Ilustres 444, Lomas 1a Sección, 78290 San Luis Potosí, S.L.P.',
+  street: 'Maestros Ilustres 444',
+  neighborhood: 'Lomas 1a Sección',
+  city: 'San Luis Potosí',
+  state: 'S.L.P.',
+  postalCode: '78290',
+  country: 'MX',
   hours: 'Lunes a viernes · 7:30 a 15:00',
   admissionsLabel: 'Admisiones abiertas 2026 - 2027',
+  foundingYear: '1993',
+  social: {
+    facebook: 'https://www.facebook.com/InstitutoBuckingham',
+  },
 }
 
 export const navigation = [

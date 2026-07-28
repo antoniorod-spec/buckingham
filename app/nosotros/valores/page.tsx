@@ -3,11 +3,13 @@ import Link from "next/link"
 import { Button } from "@/components/ui/button"
 import { Card, CardContent } from "@/components/ui/card"
 import { ChevronRight, Heart, Users, Shield, Lightbulb, HandHeart, Star } from "lucide-react"
+import { pageMetadata } from '@/lib/seo'
 
-export const metadata: Metadata = {
-  title: "Valores | Instituto Buckingham",
-  description: "Los valores que guían la formación integral en Instituto Buckingham: respeto, responsabilidad, honestidad, solidaridad y más.",
-}
+export const metadata: Metadata = pageMetadata({
+  title: "Nuestros valores",
+  description: "Los valores que guían la formación integral en Instituto Buckingham: respeto, responsabilidad, honestidad, solidaridad y empatía.",
+  path: '/nosotros/valores',
+})
 
 const valores = [
   {

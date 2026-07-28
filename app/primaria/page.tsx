@@ -11,42 +11,46 @@ import { StatCard } from '@/components/StatCard'
 import { TestimonialCard } from '@/components/TestimonialCard'
 import { homeFaq, testimonials } from '@/lib/content'
 import { images } from '@/lib/content/images'
+import { pageMetadata, breadcrumbSchema, faqSchema } from '@/lib/seo'
+import { JsonLd } from '@/components/JsonLd'
 
-export const metadata: Metadata = {
-  title: 'Primaria',
+export const metadata: Metadata = pageMetadata({
+  title: 'Primaria bilingüe en San Luis Potosí',
   description:
-    'Conoce la propuesta de Primaria de Instituto Buckingham: estructura académica, acompañamiento cercano y continuidad bilingüe.',
-}
+    'Primaria bilingüe de 1º a 6º en San Luis Potosí: grupos reducidos, inglés con continuidad y hábitos de estudio para llegar preparado a secundaria.',
+  path: '/primaria',
+  image: '/images/primaria.jpg',
+})
 
 const primariaStrengths = [
   {
     title: 'Estructura académica clara',
-    description: 'La página transmite orden, profundidad y una promesa formativa seria sin sentirse rígida.',
+    description: 'Programa SEP con planeación por bimestre, evaluación continua y expectativas que la familia conoce desde el inicio del ciclo.',
     icon: 'graduation' as const,
   },
   {
     title: 'Pensamiento y autonomía',
-    description: 'Los contenidos destacan hábitos, criterio y avance progresivo con acompañamiento real.',
+    description: 'Enseñamos a organizar el tiempo, estudiar solos y defender una idea con argumentos, no a memorizar para el examen.',
     icon: 'brain' as const,
   },
   {
     title: 'Bilingüismo con continuidad',
-    description: 'La narrativa integra inglés, habilidades académicas y confianza comunicativa como parte de una misma propuesta.',
+    description: 'El inglés que empezó en Maternal sigue aquí sin cortes, con más exigencia de lectura, escritura y conversación cada año.',
     icon: 'globe' as const,
   },
   {
     title: 'Acompañamiento docente',
-    description: 'La sección visualiza seguimiento, observación y cercanía como parte del valor del nivel.',
+    description: 'Grupos reducidos: los maestros conocen a cada alumno y detectan a tiempo si algo se atora.',
     icon: 'users' as const,
   },
   {
     title: 'Formación integral',
-    description: 'Lo académico convive con valores, convivencia y experiencia escolar en una composición equilibrada.',
+    description: 'Música, deporte, arte y convivencia forman parte del horario, no son actividades sueltas fuera de clase.',
     icon: 'heart' as const,
   },
   {
     title: 'Proyección a futuro',
-    description: 'La página sugiere preparación para siguientes etapas con una estética madura y confiable.',
+    description: 'Al terminar sexto, tu hijo sale con hábitos de estudio y nivel de inglés para entrar con confianza a secundaria.',
     icon: 'shield' as const,
   },
 ]
@@ -91,6 +95,7 @@ const primariaFaq = [
 export default function PrimariaPage() {
   return (
     <div className="flex flex-col">
+      <JsonLd data={[breadcrumbSchema([{ name: 'Inicio', path: '/' }, { name: 'Primaria', path: '/primaria' }]), faqSchema(primariaFaq)]} />
       <PageHero
         eyebrow="Primaria · 6 a 12 años"
         title="Formación académica, cercanía y continuidad para avanzar con confianza"
@@ -128,7 +133,7 @@ export default function PrimariaPage() {
           <SectionHeading
             eyebrow="Fortalezas"
             title="Una propuesta académica clara sin perder cercanía ni calidez"
-            description="Primaria comunica orden, profundidad y acompañamiento con una jerarquía sobria y fácil de recorrer."
+            description="Seis años en los que tu hijo pasa de aprender a leer a estudiar por su cuenta. Esto es lo que ponemos de nuestra parte."
           />
           <div className="grid gap-5 md:grid-cols-2 xl:grid-cols-3">
             {primariaStrengths.map((strength) => (
@@ -149,15 +154,15 @@ export default function PrimariaPage() {
             <div>
               <SectionHeading
                 eyebrow="Modelo académico"
-                title="Rigor, cercanía y proyección explicados con claridad"
-                description="El contenido organiza hábitos, seguimiento y crecimiento integral sin cargar demasiado la página."
+                title="Exigencia con acompañamiento, no exigencia a secas"
+                description="Pedimos a cada alumno lo que puede dar y le damos las herramientas para llegar ahí."
                 align="left"
               />
               <div className="grid gap-3 sm:grid-cols-2">
-                <StatCard value="Orden" label="en el recorrido" detail="Jerarquía visual para que la familia comprenda la propuesta con rapidez." />
-                <StatCard value="Profundidad" label="sin saturación" detail="Se comunica rigor con claridad, no con exceso de texto." />
-                <StatCard value="Comunicación" label="con familias" detail="La relación escuela-casa sigue siendo visible dentro de la narrativa." />
-                <StatCard value="Proyección" label="a siguientes etapas" detail="La página sugiere preparación y continuidad académica." />
+                <StatCard value="Orden" label="en el día a día" detail="Horarios, tareas y evaluaciones con calendario claro desde el primer día del ciclo." />
+                <StatCard value="Profundidad" label="sin saturar" detail="Preferimos que entiendan bien lo esencial antes que avanzar por avanzar." />
+                <StatCard value="Comunicación" label="con familias" detail="Si algo pasa en clase te enteras por el colegio, no por tu hijo dos semanas después." />
+                <StatCard value="Proyección" label="a secundaria" detail="Hábitos de estudio y nivel de inglés para dar el salto sin sobresaltos." />
               </div>
             </div>
             <div className="card-elevated relative overflow-hidden border-primary/12 p-3">
@@ -189,8 +194,8 @@ export default function PrimariaPage() {
         <div className="container-shell">
           <SectionHeading
             eyebrow="Vida escolar"
-            title="Proyectos, aula y comunidad con el mismo lenguaje premium del sitio"
-            description="La galería permite mostrar vida escolar sin romper la consistencia visual general."
+            title="Clases, recreo y actividades de Primaria"
+            description="Aulas, cancha, taller de música y los espacios donde tu hijo pasará estos seis años."
           />
           <div className="grid gap-4 md:grid-cols-3">
             {images.primaria.gallery.map((src, index) => (
@@ -204,8 +209,8 @@ export default function PrimariaPage() {
         <div className="container-shell">
           <SectionHeading
             eyebrow="Testimonios"
-            title="La validación social refuerza la promesa de rigor con cercanía"
-            description="Los testimonios ayudan a sostener evidencia de acompañamiento académico y trato humano."
+            title="Familias que ya pasaron por Primaria"
+            description="Lo que cuentan padres y madres con hijos cursando estos años en Buckingham."
           />
           <div className="grid gap-5 lg:grid-cols-3">
             {testimonials.map((testimonial) => (
@@ -225,7 +230,7 @@ export default function PrimariaPage() {
           <SectionHeading
             eyebrow="FAQ"
             title="Preguntas frecuentes resueltas con claridad"
-            description="La interfaz permite explicar acompañamiento, estructura y continuidad sin sobrecargar la página."
+            description="Tamaño de grupo, tareas, nivel de inglés y cambio desde otro colegio: las dudas más habituales en Primaria."
           />
           <div className="mx-auto max-w-3xl">
             <FAQAccordion items={primariaFaq} />
@@ -234,8 +239,8 @@ export default function PrimariaPage() {
       </section>
 
       <CTASection
-        title="Primaria debe proyectar confianza, exigencia sana y cercanía en la misma pantalla"
-        description="La estructura actual ya sostiene ese equilibrio con componentes reutilizables y una dirección visual más editorial que genérica."
+        title="Visita Primaria en día de clases"
+        description="Es la mejor forma de ver el tamaño real de los grupos, cómo dan clase los maestros y cómo se trabaja el inglés."
         primaryCta={{ label: 'Iniciar admisión', href: '/admisiones' }}
         secondaryCta={{ label: 'Conocer Preescolar', href: '/preescolar' }}
       />

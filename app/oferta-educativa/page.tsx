@@ -4,11 +4,13 @@ import { SectionHeading } from '@/components/SectionHeading'
 import { ProgramCard } from '@/components/ProgramCard'
 import { CTASection } from '@/components/CTASection'
 import { educationalLevels, bilingualFeatures } from '@/lib/content'
+import { pageMetadata } from '@/lib/seo'
 
-export const metadata: Metadata = {
-  title: 'Oferta Educativa | Instituto Buckingham',
-  description: 'Maternal, Preescolar y Primaria. Conoce nuestra oferta educativa bilingüe en San Luis Potosí.',
-}
+export const metadata: Metadata = pageMetadata({
+  title: 'Oferta educativa bilingüe',
+  description: 'Maternal (1-3 años), Preescolar (3-6) y Primaria (6-12) en un mismo colegio bilingüe de San Luis Potosí, con continuidad entre niveles.',
+  path: '/oferta-educativa',
+})
 
 export default function OfertaEducativaPage() {
   return (

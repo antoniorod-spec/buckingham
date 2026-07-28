@@ -10,12 +10,16 @@ import { SectionHeading } from '@/components/SectionHeading'
 import { StatCard } from '@/components/StatCard'
 import { homeFaq } from '@/lib/content'
 import { images } from '@/lib/content/images'
+import { pageMetadata, breadcrumbSchema, faqSchema } from '@/lib/seo'
+import { JsonLd } from '@/components/JsonLd'
 
-export const metadata: Metadata = {
-  title: 'Maternal',
+export const metadata: Metadata = pageMetadata({
+  title: 'Maternal en San Luis Potosí',
   description:
-    'Descubre la propuesta de Maternal de Instituto Buckingham: seguridad, acompañamiento y desarrollo temprano en un entorno cálido.',
-}
+    'Maternal para niños de 1 a 3 años en San Luis Potosí: adaptación acompañada, rutinas seguras y grupos reducidos. Conoce nuestras salas y agenda una visita.',
+  path: '/maternal',
+  image: '/images/maternal.jpg',
+})
 
 const maternalBenefits = [
   {
@@ -90,6 +94,7 @@ const maternalFaq = [
 export default function MaternalPage() {
   return (
     <div className="flex flex-col">
+      <JsonLd data={[breadcrumbSchema([{ name: 'Inicio', path: '/' }, { name: 'Maternal', path: '/maternal' }]), faqSchema(maternalFaq)]} />
       <PageHero
         eyebrow="Maternal · 1 a 3 años"
         title="Primeros pasos con cuidado, seguridad y acompañamiento real"
@@ -127,7 +132,7 @@ export default function MaternalPage() {
           <SectionHeading
             eyebrow="Propuesta de valor"
             title="Una etapa cuidada, cercana y diseñada para dar confianza"
-            description="La propuesta visual y pedagógica refuerza contención, vínculo y desarrollo temprano con claridad."
+            description="Dejar a un hijo pequeño por primera vez no es fácil. Por eso cuidamos cada detalle de la adaptación, el vínculo y el desarrollo en estos primeros años."
           />
           <div className="grid gap-5 md:grid-cols-2 xl:grid-cols-3">
             {maternalBenefits.map((benefit) => (
@@ -149,14 +154,14 @@ export default function MaternalPage() {
               <SectionHeading
                 eyebrow="Experiencia diaria"
                 title="Rutina, exploración y acompañamiento desde el primer contacto"
-                description="La página explica cómo se vive Maternal con una estética cálida, clara y confiable."
+                description="Así transcurre un día en Maternal, desde que llega tu hijo por la mañana hasta que lo recoges."
                 align="left"
               />
               <div className="grid gap-3 sm:grid-cols-2">
-                <StatCard value="Rutina" label="bien diseñada" detail="Entrada, juego, descanso y acompañamiento con expectativas visibles." />
-                <StatCard value="Exploración" label="con intención" detail="La experiencia puede ampliarse con actividades y galerías por etapa." />
-                <StatCard value="Familia" label="siempre informada" detail="El diseño reserva espacio para seguimiento cercano y mensajes de confianza." />
-                <StatCard value="Transición" label="hacia Preescolar" detail="La continuidad entre niveles se comunica desde esta primera etapa." />
+                <StatCard value="Rutina" label="bien diseñada" detail="Entrada, juego, alimentación, descanso y salida en horarios estables que dan seguridad." />
+                <StatCard value="Exploración" label="con intención" detail="Actividades sensoriales y de motricidad guiadas por educadoras, no juego libre sin más." />
+                <StatCard value="Familia" label="siempre informada" detail="Te contamos cómo comió, durmió y qué hizo tu hijo cada día." />
+                <StatCard value="Transición" label="hacia Preescolar" detail="Al terminar Maternal tu hijo continúa en el mismo colegio, sin cambios ni nuevas adaptaciones." />
               </div>
             </div>
             <div className="card-elevated relative overflow-hidden border-primary/12 p-3">
@@ -188,8 +193,8 @@ export default function MaternalPage() {
         <div className="container-shell">
           <SectionHeading
             eyebrow="Galería"
-            title="Espacios y momentos para comunicar calma, cuidado y cercanía"
-            description="Las imágenes sostienen la narrativa de seguridad y contención sin romper la estética general del sitio."
+            title="Los espacios donde pasará el día tu hijo"
+            description="Salas de estimulación, áreas de descanso y zonas de juego pensadas y equipadas para niños de 1 a 3 años."
           />
           <div className="grid gap-4 md:grid-cols-3">
             {images.maternal.gallery.map((src, index) => (
@@ -204,7 +209,7 @@ export default function MaternalPage() {
           <SectionHeading
             eyebrow="FAQ"
             title="Dudas frecuentes resueltas con claridad y cercanía"
-            description="Las preguntas frecuentes refuerzan proceso de adaptación, acompañamiento y confianza para la familia."
+            description="Adaptación, horarios, alimentación y todo lo que suelen preguntarnos las familias que empiezan Maternal."
           />
           <div className="mx-auto max-w-3xl">
             <FAQAccordion items={maternalFaq} />
@@ -213,8 +218,8 @@ export default function MaternalPage() {
       </section>
 
       <CTASection
-        title="Maternal debe sentirse tranquilo incluso antes de visitar el campus"
-        description="La estructura ya comunica esa seguridad con una mezcla de copy cercano, superficies suaves y bloques de información claros."
+        title="Ven a ver el aula de Maternal"
+        description="Te enseñamos las salas, te presentamos a las educadoras y resolvemos tus dudas sobre la adaptación. Sin compromiso."
         primaryCta={{ label: 'Iniciar proceso', href: '/admisiones' }}
         secondaryCta={{ label: 'Hablar con admisiones', href: '/contacto' }}
       />

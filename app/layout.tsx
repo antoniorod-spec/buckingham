@@ -3,6 +3,9 @@ import { Inter, Poppins } from 'next/font/google'
 import { Analytics } from '@vercel/analytics/next'
 import { Footer } from '@/components/footer'
 import { Header } from '@/components/header'
+import { JsonLd } from '@/components/JsonLd'
+import { siteConfig } from '@/lib/content'
+import { defaultOgImage, schoolSchema, siteUrl, websiteSchema } from '@/lib/seo'
 import './globals.css'
 
 const poppins = Poppins({
@@ -19,26 +22,36 @@ const inter = Inter({
 })
 
 export const metadata: Metadata = {
+  metadataBase: new URL(siteUrl),
   title: {
-    default: 'Instituto Buckingham | Educación bilingüe con calidez y estructura',
+    default: 'Colegio bilingüe en San Luis Potosí | Instituto Buckingham',
     template: '%s | Instituto Buckingham',
   },
   description:
-    'Instituto Buckingham acompaña a cada familia con una propuesta cálida, bilingüe y cuidadosamente diseñada para Maternal, Preescolar y Primaria en San Luis Potosí.',
-  keywords: [
-    'Instituto Buckingham',
-    'colegio bilingüe en San Luis Potosí',
-    'maternal',
-    'preescolar',
-    'primaria',
-    'admisiones escolares',
-  ],
+    'Colegio bilingüe privado en San Luis Potosí con Maternal, Preescolar y Primaria. Grupos reducidos, atención personalizada y más de 30 años de trayectoria. Admisiones abiertas.',
+  applicationName: siteConfig.name,
+  alternates: { canonical: '/' },
   openGraph: {
-    title: 'Instituto Buckingham',
+    title: 'Colegio bilingüe en San Luis Potosí | Instituto Buckingham',
     description:
-      'Una comunidad educativa cálida, moderna y confiable para Maternal, Preescolar y Primaria.',
+      'Maternal, Preescolar y Primaria con educación bilingüe y atención personalizada en San Luis Potosí. Más de 30 años de trayectoria.',
+    url: siteUrl,
+    siteName: siteConfig.name,
     locale: 'es_MX',
     type: 'website',
+    images: [defaultOgImage],
+  },
+  twitter: {
+    card: 'summary_large_image',
+    title: 'Colegio bilingüe en San Luis Potosí | Instituto Buckingham',
+    description:
+      'Maternal, Preescolar y Primaria con educación bilingüe y atención personalizada en San Luis Potosí.',
+    images: [defaultOgImage.url],
+  },
+  robots: {
+    index: true,
+    follow: true,
+    googleBot: { index: true, follow: true, 'max-image-preview': 'large', 'max-snippet': -1 },
   },
 }
 
@@ -54,8 +67,9 @@ export default function RootLayout({
   children: React.ReactNode
 }>) {
   return (
-    <html lang="es" className={`${poppins.variable} ${inter.variable}`}>
+    <html lang="es-MX" className={`${poppins.variable} ${inter.variable}`}>
       <body className="flex min-h-screen flex-col">
+        <JsonLd data={[schoolSchema, websiteSchema]} />
         <Header />
         <main className="flex-1">{children}</main>
         <Footer />
