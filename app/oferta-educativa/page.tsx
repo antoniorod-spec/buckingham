@@ -7,8 +7,8 @@ import { educationalLevels, bilingualFeatures } from '@/lib/content'
 import { pageMetadata } from '@/lib/seo'
 
 export const metadata: Metadata = pageMetadata({
-  title: 'Oferta educativa bilingüe',
-  description: 'Maternal (1-3 años), Preescolar (3-6) y Primaria (6-12) en un mismo colegio bilingüe de San Luis Potosí, con continuidad entre niveles.',
+  title: 'Kinder, preescolar y primaria bilingüe',
+  description: 'Maternal (1-3 años), kinder y preescolar (3-6) y primaria (6-12) en un mismo colegio bilingüe de San Luis Potosí, con continuidad entre niveles.',
   path: '/oferta-educativa',
 })
 

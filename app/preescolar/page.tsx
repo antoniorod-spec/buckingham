@@ -14,9 +14,9 @@ import { pageMetadata, breadcrumbSchema, faqSchema } from '@/lib/seo'
 import { JsonLd } from '@/components/JsonLd'
 
 export const metadata: Metadata = pageMetadata({
-  title: 'Preescolar bilingüe en San Luis Potosí',
+  title: 'Kinder bilingüe en San Luis Potosí',
   description:
-    'Preescolar bilingüe para niños de 3 a 6 años en San Luis Potosí: juego con intención, inglés diario y preparación real para Primaria. Agenda tu visita.',
+    'Kinder y preescolar bilingüe para niños de 3 a 6 años en San Luis Potosí: grupos reducidos, inglés diario y preparación real para primaria. Agenda tu visita.',
   path: '/preescolar',
   image: '/images/preescolar.jpg',
 })
@@ -96,7 +96,7 @@ export default function PreescolarPage() {
     <div className="flex flex-col">
       <JsonLd data={[breadcrumbSchema([{ name: 'Inicio', path: '/' }, { name: 'Preescolar', path: '/preescolar' }]), faqSchema(preescolarFaq)]} />
       <PageHero
-        eyebrow="Preescolar · 3 a 6 años"
+        eyebrow="Kinder y Preescolar · 3 a 6 años"
         title="Descubrir, expresarse y aprender con alegría, estructura y confianza"
         description="Preescolar en Buckingham acompaña una etapa clave con juego intencional, bilingüismo natural y bases sólidas para seguir creciendo."
         image={images.preescolar.hero}

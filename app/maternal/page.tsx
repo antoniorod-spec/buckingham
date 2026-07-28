@@ -14,9 +14,9 @@ import { pageMetadata, breadcrumbSchema, faqSchema } from '@/lib/seo'
 import { JsonLd } from '@/components/JsonLd'
 
 export const metadata: Metadata = pageMetadata({
-  title: 'Maternal en San Luis Potosí',
+  title: 'Maternal bilingüe en San Luis Potosí',
   description:
-    'Maternal para niños de 1 a 3 años en San Luis Potosí: adaptación acompañada, rutinas seguras y grupos reducidos. Conoce nuestras salas y agenda una visita.',
+    'Maternal y guardería bilingüe para niños de 1 a 3 años en San Luis Potosí: adaptación acompañada, rutinas seguras y grupos reducidos. Agenda una visita.',
   path: '/maternal',
   image: '/images/maternal.jpg',
 })

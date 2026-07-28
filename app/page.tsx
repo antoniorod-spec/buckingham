@@ -27,12 +27,17 @@ import {
 } from '@/lib/content'
 import { images } from '@/lib/content/images'
 import { JsonLd } from '@/components/JsonLd'
-import { faqSchema } from '@/lib/seo'
+import { faqSchema, pageMetadata } from '@/lib/seo'
 
 export const metadata: Metadata = {
-  title: 'Inicio',
-  description:
-    'Instituto Buckingham ofrece una experiencia educativa cálida, moderna y bilingüe para Maternal, Preescolar y Primaria.',
+  ...pageMetadata({
+    title: 'Colegio bilingüe en San Luis Potosí',
+    description:
+      'Colegio bilingüe privado en San Luis Potosí con maternal, kinder, preescolar y primaria. Grupos reducidos y atención personalizada desde 1993. Agenda tu visita.',
+    path: '/',
+  }),
+  // La home lleva title absoluto: el template del layout duplicaría la marca.
+  title: { absolute: 'Colegio bilingüe en San Luis Potosí | Instituto Buckingham' },
 }
 
 const trustProofItems = [

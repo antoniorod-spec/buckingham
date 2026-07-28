@@ -14,9 +14,9 @@ import { pageMetadata, breadcrumbSchema, faqSchema } from '@/lib/seo'
 import { JsonLd } from '@/components/JsonLd'
 
 export const metadata: Metadata = pageMetadata({
-  title: 'Admisiones 2026 - 2027',
+  title: 'Admisiones e inscripciones 2026 - 2027',
   description:
-    'Proceso de admisión en 4 pasos para Maternal, Preescolar y Primaria en San Luis Potosí. Requisitos, documentos y cómo agendar tu visita al colegio.',
+    'Inscripciones abiertas para maternal, kinder y primaria en San Luis Potosí. Proceso en 4 pasos, requisitos, documentos y cómo agendar tu visita al colegio.',
   path: '/admisiones',
 })
 

@@ -28,7 +28,7 @@ export const metadata: Metadata = {
     template: '%s | Instituto Buckingham',
   },
   description:
-    'Colegio bilingüe privado en San Luis Potosí con Maternal, Preescolar y Primaria. Grupos reducidos, atención personalizada y más de 30 años de trayectoria. Admisiones abiertas.',
+    'Colegio bilingüe privado en San Luis Potosí: maternal, kinder, preescolar y primaria. Grupos reducidos, atención personalizada y más de 30 años de trayectoria. Admisiones abiertas.',
   applicationName: siteConfig.name,
   alternates: { canonical: '/' },
   openGraph: {
