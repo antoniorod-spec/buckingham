@@ -166,7 +166,7 @@ export default function PrimariaPage() {
               </div>
               <div className="relative aspect-[4/3.5] overflow-hidden rounded-[1.35rem]">
                 <Image
-                  src={images.primaria.hero}
+                  src={images.primaria.feature}
                   alt="Primaria en Instituto Buckingham"
                   fill
                   className="object-cover"

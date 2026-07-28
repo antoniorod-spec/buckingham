@@ -165,7 +165,7 @@ export default function MaternalPage() {
               </div>
               <div className="relative aspect-[4/3.5] overflow-hidden rounded-[1.35rem]">
                 <Image
-                  src={images.maternal.hero}
+                  src={images.maternal.feature}
                   alt="Ambiente de Maternal"
                   fill
                   className="object-cover"

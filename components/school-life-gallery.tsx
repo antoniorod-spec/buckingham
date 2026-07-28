@@ -9,33 +9,33 @@ import { Button } from "@/components/ui/button"
 const galleryImages = [
   {
     src: "/images/gallery-1.jpg",
-    alt: "Actividades de aprendizaje en el aula",
-    caption: "Aprendizaje interactivo",
+    alt: "Patio de juegos del Instituto Buckingham con castillo y área de preescolar",
+    caption: "Instalaciones únicas",
   },
   {
     src: "/images/gallery-2.jpg",
-    alt: "Celebración del Día del Niño",
-    caption: "Celebraciones especiales",
+    alt: "Niñas de preescolar jugando juntas en el patio de césped",
+    caption: "Juego y socialización",
   },
   {
     src: "/images/gallery-3.jpg",
-    alt: "Clase de educación física",
+    alt: "Clase de educación física en la cancha techada del colegio",
     caption: "Desarrollo físico",
   },
   {
     src: "/images/gallery-4.jpg",
-    alt: "Taller de arte y creatividad",
+    alt: "Alumnas de primaria en clase de música tocando el violín",
     caption: "Expresión artística",
   },
   {
     src: "/images/gallery-5.jpg",
-    alt: "Actividades en el patio de recreo",
-    caption: "Juego y socialización",
+    alt: "Alumnos jugando en el patio durante el recreo",
+    caption: "Recreo y convivencia",
   },
   {
     src: "/images/gallery-6.jpg",
-    alt: "Proyecto de ciencias",
-    caption: "Exploración científica",
+    alt: "Actividades de aprendizaje en el aula de maternal",
+    caption: "Aprendizaje interactivo",
   },
 ]
 

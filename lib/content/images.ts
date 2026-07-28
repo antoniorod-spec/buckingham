@@ -20,15 +20,18 @@
   },
   maternal: {
     hero: '/images/maternal.jpg',
-    gallery: ['/images/maternal.jpg', '/images/gallery-1.jpg', '/images/gallery-2.jpg'],
+    feature: '/images/maternal-2.jpg',
+    gallery: ['/images/maternal-3.jpg', '/images/maternal-4.jpg', '/images/maternal-5.jpg'],
   },
   preescolar: {
     hero: '/images/preescolar.jpg',
-    gallery: ['/images/preescolar.jpg', '/images/gallery-3.jpg', '/images/gallery-4.jpg'],
+    feature: '/images/preescolar-2.jpg',
+    gallery: ['/images/preescolar-3.jpg', '/images/preescolar-4.jpg', '/images/preescolar-5.jpg'],
   },
   primaria: {
     hero: '/images/primaria.jpg',
-    gallery: ['/images/primaria.jpg', '/images/gallery-5.jpg', '/images/gallery-6.jpg'],
+    feature: '/images/primaria-2.jpg',
+    gallery: ['/images/primaria-3.jpg', '/images/primaria-4.jpg', '/images/primaria-5.jpg'],
   },
   vidaEscolar: {
     hero: '/images/hero-students.jpg',
@@ -43,7 +46,7 @@
   },
   nosotros: {
     hero: '/images/hero-students.jpg',
-    story: '/images/team-1.jpg',
+    story: '/images/patio-buckingham.jpg',
   },
   contacto: {
     hero: '/images/hero-students.jpg',

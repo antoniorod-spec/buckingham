@@ -151,7 +151,7 @@ export default function PreescolarPage() {
               </div>
               <div className="relative aspect-[4/3.5] overflow-hidden rounded-[1.35rem]">
                 <Image
-                  src={images.preescolar.hero}
+                  src={images.preescolar.feature}
                   alt="Preescolar en Instituto Buckingham"
                   fill
                   className="object-cover"

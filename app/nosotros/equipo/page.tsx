@@ -15,19 +15,19 @@ const directivos = [
     name: "Lic. María Elena Rodríguez",
     role: "Directora General",
     description: "Más de 25 años de experiencia en educación básica. Fundadora y líder de nuestra comunidad educativa.",
-    image: "/images/team-1.jpg",
+    initials: "MR",
   },
   {
     name: "Lic. Patricia Hernández",
     role: "Coordinadora Académica",
     description: "Especialista en pedagogía infantil con certificación en metodologías activas de aprendizaje.",
-    image: "/images/team-2.jpg",
+    initials: "PH",
   },
   {
     name: "Lic. Roberto Martínez",
     role: "Coordinador de Inglés",
     description: "Certificación CELTA de Cambridge. 15 años de experiencia en enseñanza de inglés como segunda lengua.",
-    image: "/images/team-3.jpg",
+    initials: "RM",
   },
 ]
 
@@ -159,19 +159,28 @@ export default function EquipoPage() {
               </p>
             </div>
 
+            <div className="relative mb-12 aspect-[16/7] overflow-hidden rounded-3xl ring-1 ring-primary/20">
+              <Image
+                src="/images/equipo-buckingham.jpg"
+                alt="Educadoras de Instituto Buckingham acompañando a los alumnos en el aula"
+                fill
+                className="object-cover"
+                sizes="(max-width: 1280px) 100vw, 1200px"
+              />
+              <div className="absolute inset-0 bg-gradient-to-t from-secondary/70 via-secondary/10 to-transparent" />
+              <p className="absolute bottom-6 left-6 right-6 max-w-xl text-balance text-lg font-medium text-white sm:text-xl">
+                Acompañamiento cercano en cada aula, todos los días del ciclo escolar.
+              </p>
+            </div>
+
             <div className="grid md:grid-cols-3 gap-8">
               {directivos.map((persona) => (
-                <Card key={persona.name} className="border-primary/20 overflow-hidden hover:shadow-lg transition-shadow">
-                  <div className="aspect-[4/3] relative bg-muted">
-                    <Image
-                      src={persona.image}
-                      alt={persona.name}
-                      fill
-                      className="object-cover"
-                    />
-                  </div>
-                  <CardContent className="p-6 text-center">
-                    <h3 className="font-heading text-xl font-semibold text-foreground mb-1">
+                <Card key={persona.name} className="border-primary/20 hover:shadow-lg transition-shadow">
+                  <CardContent className="flex h-full flex-col p-8">
+                    <div className="flex h-16 w-16 items-center justify-center rounded-2xl bg-primary/15 font-heading text-xl font-bold tracking-wide text-primary">
+                      {persona.initials}
+                    </div>
+                    <h3 className="font-heading text-xl font-semibold text-foreground mt-6 mb-1">
                       {persona.name}
                     </h3>
                     <p className="text-primary font-medium text-sm mb-3">
