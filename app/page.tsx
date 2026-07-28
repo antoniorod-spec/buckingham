@@ -31,13 +31,14 @@ import { faqSchema, pageMetadata } from '@/lib/seo'
 
 export const metadata: Metadata = {
   ...pageMetadata({
-    title: 'Colegio bilingüe en San Luis Potosí',
+    title: 'Kinder, Preescolar y Colegio Primaria Bilingüe en San Luis Potosí',
     description:
       'Colegio bilingüe privado en San Luis Potosí con maternal, kinder, preescolar y primaria. Grupos reducidos y atención personalizada desde 1993. Agenda tu visita.',
     path: '/',
   }),
-  // La home lleva title absoluto: el template del layout duplicaría la marca.
-  title: { absolute: 'Colegio bilingüe en San Luis Potosí | Instituto Buckingham' },
+  // Title absoluto: es el que ya posiciona el sitio actual y se conserva en la
+  // migración. Sin sufijo de marca, que aquí solo restaría espacio a las keywords.
+  title: { absolute: 'Kinder, Preescolar y Colegio Primaria Bilingüe en San Luis Potosí' },
 }
 
 const trustProofItems = [
